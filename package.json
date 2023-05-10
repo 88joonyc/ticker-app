@@ -51,6 +51,5 @@
     "use-debounce": "^9.0.4",
     "victory": "^36.6.10",
     "web-vitals": "^2.1.4"
-  },
-  "proxy": "https://polygon-ticker-app-production.up.railway.app/"
+  }
 }
