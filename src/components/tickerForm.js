@@ -65,7 +65,7 @@ export default function TickerForm () {
                 body: JSON.stringify(payload)
             }).then(async res => setData(await res.json()))
               .catch(err => console.log(err)),
-            fetch(`/api/ticker/details/${ticker}`)
+            fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/details/${ticker}`)
             .then(async res => await res.json())
             .then(async returndata => {
                 setMeta(returndata);
@@ -85,7 +85,7 @@ export default function TickerForm () {
                 }
             })
             .catch(err => console.log(err)),
-            fetch(`/api/ticker/news/${ticker}`)
+            fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/news/${ticker}`)
             .then(async res => await res.json())
             .then(data => setNews(data))
             .catch(err => console.log(err))

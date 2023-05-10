@@ -32,7 +32,7 @@ export default function Home () {
             console.log('thisisrunning')
             let response
             try{
-                response = await csrfFetch('/api/ticker/search/multiple', {
+                response = await csrfFetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/search/multiple`, {
                     method: 'POST',
                     'Content-type': 'application/JSON',
                     body: JSON.stringify({
@@ -46,7 +46,6 @@ export default function Home () {
             }
             const data = await response.json()
             setData(data)
-            console.log(data)
             return data
         }
 
