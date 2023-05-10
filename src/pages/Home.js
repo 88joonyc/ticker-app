@@ -32,7 +32,7 @@ export default function Home () {
             console.log('thisisrunning')
             let response
             try{
-                response = await csrfFetch('http://localhost:5314/api/ticker/search/multiple', {
+                response = await csrfFetch('/api/ticker/search/multiple', {
                     method: 'POST',
                     'Content-type': 'application/JSON',
                     body: JSON.stringify({

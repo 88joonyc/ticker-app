@@ -59,13 +59,13 @@ export default function TickerForm () {
         }
 
         await Promise.all([
-            fetch('http://localhost:5314/api/search', {
+            fetch('/api/search', {
                 method:"POST",
                 headers: {"Content-Type": 'application/json'},
                 body: JSON.stringify(payload)
             }).then(async res => setData(await res.json()))
               .catch(err => console.log(err)),
-            fetch(`http://localhost:5314/api/ticker/details/${ticker}`)
+            fetch(`/api/ticker/details/${ticker}`)
             .then(async res => await res.json())
             .then(async returndata => {
                 setMeta(returndata);
@@ -85,7 +85,7 @@ export default function TickerForm () {
                 }
             })
             .catch(err => console.log(err)),
-            fetch(`http://localhost:5314/api/ticker/news/${ticker}`)
+            fetch(`/api/ticker/news/${ticker}`)
             .then(async res => await res.json())
             .then(data => setNews(data))
             .catch(err => console.log(err))
