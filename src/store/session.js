@@ -16,7 +16,7 @@ const removeUser = () => {
   };
 };
 
-const url = 'https://polygon-ticker-app-production.up.railway.app'
+const url = 'https://ticker-app-api-production.up.railway.app'
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;      
