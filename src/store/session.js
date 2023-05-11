@@ -16,8 +16,6 @@ const removeUser = () => {
   };
 };
 
-console.log('price--------------------------------------', process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL)
-
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;      
   const response = await csrfFetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/session`, {

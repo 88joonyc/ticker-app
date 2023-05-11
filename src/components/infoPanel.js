@@ -61,7 +61,7 @@ export default function InfoPanel({ticker}) {
         async function runme() {
             let data
             try {
-                data = await fetch('https://ticker-app-api-production.up.railway.app/api/ticker/search', {
+                data = await fetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
                     method: 'POST',
                     headers: {"Content-Type": 'application/json'},
                     body: JSON.stringify(payload)
@@ -79,13 +79,13 @@ export default function InfoPanel({ticker}) {
         async function findmeta() {
             console.log('thisishuitting')
             await Promise.all([
-                fetch('https://ticker-app-api-production.up.railway.app/api/ticker/search', {
+                fetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
                     method:"POST",
                     headers: {"Content-Type": 'application/json'},
                     body: JSON.stringify(payload)
                 }).then(async res => setData(await res.json()))
                   .catch(err => console.log(err)),
-                fetch(`https://ticker-app-api-production.up.railway.app/api/ticker/details/${ticker}`)
+                fetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/ticker/details/${ticker}`)
                 .then(async res => await res.json())
                 .then(async returndata => {
                     setMeta(returndata);
@@ -97,7 +97,7 @@ export default function InfoPanel({ticker}) {
                     }
                 })
                 .catch(err => console.log(err)),
-                fetch(`https://ticker-app-api-production.up.railway.app/api/ticker/news/${ticker}`)
+                fetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/ticker/news/${ticker}`)
                 .then(async res => await res.json())
                 .then(data => setNews(data))
                 .catch(err => console.log(err))
