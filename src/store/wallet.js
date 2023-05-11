@@ -25,8 +25,10 @@ const updateWallet = (wallet) => {
     }
 };
 
+const url = 'https://ticker-app-api-production.up.railway.app'
+
 export const wallets = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/wallet/${id}`)
+    const response = await csrfFetch(`${url}/api/wallet/${id}`)
 
     
     const data = await response.json();
