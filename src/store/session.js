@@ -21,7 +21,6 @@ const url = 'https://ticker-app-api-production.up.railway.app'
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;      
   const response = await csrfFetch(`${url}/api/session`, {
-    mode: 'cors',
     credentials: 'include',
     method: 'POST',
     body: JSON.stringify({

@@ -37,17 +37,17 @@ export default function NavBar() {
 
     let headers = new Headers();
 
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    headers.append('Origin','https://ticker-app-api-production.up.railway.app');
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Accept', 'application/json');
+    // headers.append('Origin','https://ticker-app-api-production.up.railway.app');
 
     useEffect(() => {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
                     const response = await fetch(`https://ticker-app-api-production.up.railway.app/api/ticker/search/by/${searchQuery}`, {
-                        mode: "cors",
-                        headers: headers
+                        // mode: "cors",
+                        // headers: headers
                     } )
                     let data 
                     if (response.ok) {
