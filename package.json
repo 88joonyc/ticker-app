@@ -10,11 +10,12 @@
     "@visx/scale": "^3.0.0",
     "@visx/shape": "^3.0.0",
     "js-base64": "^3.7.5",
+    "react-scripts": "5.0.1",
     "js-cookie": "^3.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts --max_old_space_size=256 build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,7 +44,6 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.0",
-    "react-scripts": "5.0.1",
     "recharts": "^2.5.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
