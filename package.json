@@ -51,5 +51,6 @@
     "use-debounce": "^9.0.4",
     "victory": "^36.6.10",
     "web-vitals": "^2.1.4"
-  }
+  },
+  "homepage": "https://ticker-mknd.onrender.com"
 }

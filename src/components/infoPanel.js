@@ -61,7 +61,7 @@ export default function InfoPanel({ticker}) {
         async function runme() {
             let data
             try {
-                data = await fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/search`, {
+                data = await fetch('/api/ticker/search', {
                     method: 'POST',
                     headers: {"Content-Type": 'application/json'},
                     body: JSON.stringify(payload)
@@ -77,9 +77,9 @@ export default function InfoPanel({ticker}) {
         }
 
         async function findmeta() {
-            console.log('sending database request')
+            console.log('thisishuitting')
             await Promise.all([
-                fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/search`, {
+                fetch('/api/ticker/search', {
                     method:"POST",
                     headers: {"Content-Type": 'application/json'},
                     body: JSON.stringify(payload)
@@ -97,7 +97,7 @@ export default function InfoPanel({ticker}) {
                     }
                 })
                 .catch(err => console.log(err)),
-                fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/news/${ticker}`)
+                fetch(`/api/ticker/news/${ticker}`)
                 .then(async res => await res.json())
                 .then(data => setNews(data))
                 .catch(err => console.log(err))

@@ -39,7 +39,9 @@ export default function NavBar() {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
-                    const response = await fetch(`${process.env.REACT_APP_URL_POLYGON}/api/ticker/search/by/${searchQuery}`)
+                    const response = await fetch(`https://polygon-ticker-app-production.up.railway.app/api/ticker/search/by/${searchQuery}`, {
+                        'Access-Control-Allow-Origin': "https://polygon-ticker-app-production.up.railway.app"
+                    })
                     let data 
                     if (response.ok) {
                         data = await response.json()

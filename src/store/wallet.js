@@ -26,7 +26,7 @@ const updateWallet = (wallet) => {
 };
 
 export const wallets = (id) => async (dispatch) => {
-    const response = await csrfFetch(`${process.env.REACT_APP_URL_POLYGON}/api/wallet/${id}`)
+    const response = await csrfFetch(`/api/wallet/${id}`)
 
     
     const data = await response.json();
@@ -38,7 +38,7 @@ export const wallets = (id) => async (dispatch) => {
 export const create = (wallet) => async (dispatch) => {
     const { amount, userId, accountType } = wallet;
 
-    const response = await csrfFetch(`${process.env.REACT_APP_URL_POLYGON}/api/wallet`, {
+    const response = await csrfFetch('/api/wallet', {
         method: 'POST',
         body: JSON.stringify({
             amount,
@@ -55,7 +55,7 @@ export const create = (wallet) => async (dispatch) => {
 export const update = (wallet) => async (dispatch) => {
     const { userId, accountType, amount } = wallet;
 
-    const response = await csrfFetch(`${process.env.REACT_APP_URL_POLYGON}/api/wallet/update`, {
+    const response = await csrfFetch('/api/wallet/update', {
         method: 'POST',
         body: JSON.stringify({
             userId,
