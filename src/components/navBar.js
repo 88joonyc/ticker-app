@@ -44,7 +44,7 @@ export default function NavBar() {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
-                    const response = await fetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/by/${searchQuery}`, {
+                    const response = await fetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/by/${searchQuery}`, {
             
                     } )
                     let data 

@@ -8,7 +8,7 @@ const load = stocks => ({
 });
 
 export const stocks = id => async dispatch => {
-    const response = await csrfFetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/stock/${id}`)
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/stock/${id}`)
     const data = await response.json();
 
     dispatch(load(data.stocks))
