@@ -35,20 +35,20 @@ export default function NavBar() {
       return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+    let headers = new Headers();
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    headers.append('Origin','https://ticker-app-api-production.up.railway.app');
+
     useEffect(() => {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
                     const response = await fetch(`https://ticker-app-api-production.up.railway.app/api/ticker/search/by/${searchQuery}`, {
-                        mode: 'cors',
-                        credentials: "include",
-                        method: 'GET',
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json",
-                            "Origin": "*"
-                        }
-                    })
+                        mode: "cors",
+                        headers: headers
+                    } )
                     let data 
                     if (response.ok) {
                         data = await response.json()
