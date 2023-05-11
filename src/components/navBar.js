@@ -40,7 +40,7 @@ export default function NavBar() {
             if (searchQuery) {
                 try {
                     const response = await fetch(`https://polygon-ticker-app-production.up.railway.app/api/ticker/search/by/${searchQuery}`, {
-                        'Access-Control-Allow-Origin': "*"
+                        headers: {'Access-Control-Allow-Origin': "*"}
                     })
                     let data 
                     if (response.ok) {
