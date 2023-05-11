@@ -32,9 +32,8 @@ export default function Home () {
             console.log('thisisrunning')
             let response
             try{
-                response = await csrfFetch('https://polygon-ticker-app-production.up.railway.app/api/ticker/search/multiple', {
+                response = await csrfFetch('https://ticker-app-api-production.up.railway.app/api/ticker/search/multiple', {
                     method: 'POST',
-                    'Content-type': 'application/JSON',
                     body: JSON.stringify({
                         symbols: stocks?.map(stock => stock?.ticker),
                         to: dayBefore,
@@ -46,7 +45,6 @@ export default function Home () {
             }
             const data = await response.json()
             setData(data)
-            console.log(data)
             return data
         }
 

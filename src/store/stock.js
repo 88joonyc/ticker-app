@@ -7,8 +7,10 @@ const load = stocks => ({
     payload: stocks
 });
 
+const url = 'https://ticker-app-api-production.up.railway.app'
+
 export const stocks = id => async dispatch => {
-    const response = await csrfFetch(`/api/stock/${id}`)
+    const response = await csrfFetch(`${url}/api/stock/${id}`)
     const data = await response.json();
 
     dispatch(load(data.stocks))
