@@ -24,9 +24,6 @@ export const login = (user) => async (dispatch) => {
       credential,
       password,
     }),
-    headers: {
-      'Access-Control-Allow-Origin': "*"
-    }
   });
   const data = await response.json();
   dispatch(setUser(data.user));
@@ -52,11 +49,7 @@ const sessionReducer = (state = initialState, action) => {
 };
 
 export const restoreUser = () => async dispatch => {
-    const response = await csrfFetch('https://polygon-ticker-app-production.up.railway.app/api/session', {
-      headers: {
-        'Access-Control-Allow-Origin': "*"
-      }
-    });
+    const response = await csrfFetch('/api/session');
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;
@@ -64,7 +57,7 @@ export const restoreUser = () => async dispatch => {
 
 export const signup = (user) => async (dispatch) => {
     const { fullName, email, password } = user;
-    const response = await csrfFetch("https://polygon-ticker-app-production.up.railway.app/api/users", {
+    const response = await csrfFetch("/api/users", {
       method: "POST",
       body: JSON.stringify({
         fullName,
@@ -78,7 +71,7 @@ export const signup = (user) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-    const response = await csrfFetch('https://polygon-ticker-app-production.up.railway.app/api/session', {
+    const response = await csrfFetch('/api/session', {
       method: 'DELETE',
     });
     dispatch(removeUser());
