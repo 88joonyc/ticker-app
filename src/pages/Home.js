@@ -29,10 +29,10 @@ export default function Home () {
 
     useEffect(() => {
         async function run() {
-            console.log('thisisrunning')
+            console.log('thisisrunning', process.env.REACT_APP_RAILWAY_BACK_URL)
             let response
             try{
-                response = await csrfFetch('https://ticker-app-api-production.up.railway.app/api/ticker/search/multiple', {
+                response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/multiple`, {
                     method: 'POST',
                     body: JSON.stringify({
                         symbols: stocks?.map(stock => stock?.ticker),
