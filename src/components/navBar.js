@@ -39,7 +39,7 @@ export default function NavBar() {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
-                    const response = await fetch(`http://ticker-app-api-production.up.railway.app/api/ticker/search/by/${searchQuery}`)
+                    const response = await fetch(`https://ticker-app-api-production.up.railway.app/api/ticker/search/by/${searchQuery}`)
                     let data 
                     if (response.ok) {
                         data = await response.json()
