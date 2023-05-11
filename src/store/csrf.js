@@ -27,5 +27,5 @@ export async function csrfFetch(url, options = {}) {
 }
 
 export function restoreCSRF() {
-    return csrfFetch('/api/csrf/restore');
+    return csrfFetch(`${process.env.REACT_APP_REACT_APP_RAILWAY_BACK_URL}/api/csrf/restore`);
 }
