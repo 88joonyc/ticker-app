@@ -19,11 +19,18 @@ const removeUser = () => {
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;      
   const response = await csrfFetch('https://polygon-ticker-app-production.up.railway.app/api/session', {
+    mode: 'cors',
+    credentials: 'include',
     method: 'POST',
     body: JSON.stringify({
       credential,
       password,
     }),
+    headers: {
+      'Origin': 'http://localhost:3000',
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
   });
   const data = await response.json();
   dispatch(setUser(data.user));
