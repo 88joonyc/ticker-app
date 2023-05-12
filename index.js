@@ -1,7 +1,7 @@
 // Initialize Express app
 const express = require('express')
 const app = express()
-const router = require('./router')
+const router = express.Router();
 
 // Serve all static files from the dist folder
 app.use(express.static(path.join(__dirname, '../../build/')))
