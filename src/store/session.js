@@ -32,9 +32,6 @@ export const login = (user) => async (dispatch) => {
   });
   const data = await response.json();   
 
-  console.log('-=--------------------', data)
-  Cookies.set('token', response)
-
   dispatch(setUser(data.user));
   return response;
 };
@@ -58,7 +55,9 @@ const sessionReducer = (state = initialState, action) => {
 };
 
 export const restoreUser = () => async dispatch => {
-    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/session`);
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/session`, {
+      method: 'GET', credentials: 'include'
+    });
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;
