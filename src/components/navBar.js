@@ -17,7 +17,7 @@ export default function NavBar() {
     const session = useSelector(state => state.session.user)
     const toggleMenu = (e) => {
       e.stopPropagation()
-      setShowMenu(true);
+      setShowMenu(!showMenu);
     };
     
     useEffect(() => {
