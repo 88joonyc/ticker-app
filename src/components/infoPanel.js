@@ -81,7 +81,6 @@ export default function InfoPanel({ticker}) {
             await Promise.all([
                 fetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
                     method:"POST",
-                    headers: {"Content-Type": 'application/json'},
                     body: JSON.stringify(payload)
                 }).then(async res => setData(await res.json()))
                   .catch(err => console.log(err)),
