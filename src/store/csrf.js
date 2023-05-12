@@ -9,6 +9,10 @@ export async function csrfFetch(url, options = {}) {
   // if the options.method is not 'GET', then set the "Content-Type" header to
     // "application/json", and set the "XSRF-TOKEN" header to the value of the 
     // "XSRF-TOKEN" cookie
+
+    console.log('------------------------------------cookie-----------',Cookies.get('XSRF-TOKEN'))
+    console.log('------------------------------------token-----------',Cookies.get('token'))
+  
     if (options.method.toUpperCase() !== "GET") {
       if (options.headers["Content-Type"] === "multipart/form-data") {
           delete options.headers["Content-Type"];
@@ -21,8 +25,6 @@ export async function csrfFetch(url, options = {}) {
   // call the default window's fetch with the url and the options passed in
   const res = await window.fetch(url, options);
 
-  console.log('------------------------------------cookie-----------',Cookies.get('XSRF-TOKEN'))
-  console.log('------------------------------------token-----------',Cookies.get('token'))
 
   // if the response status code is 400 or above, then throw an error with the
     // error being the response
