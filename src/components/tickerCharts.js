@@ -1,12 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 // import { scaleBand, scaleLinear } from "@visx/scale";
 // import { Group } from '@visx/group';
 // import { Bar } from '@visx/shape';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { encode, decode } from 'js-base64'
 
 
-export default function TickerCharts ({data, meta, logoimage, news}) {
+export default function TickerCharts ({data, meta, news}) {
 
     // const width = 500;
     // const height = 500;

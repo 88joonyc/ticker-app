@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { useLocation } from 'react-router-dom'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryGroup, VictoryScatter } from 'victory';
+// import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, } from 'victory';
 
 export default function InfoPanel({ticker}) {
     var today = new Date();
-    var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
+    // var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
     var dayBefore =  new Date(today.setDate(today.getDate()-2)).toISOString().split('T')[0]
     
 

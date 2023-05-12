@@ -1,14 +1,12 @@
-import react, {useState, useSelector, useEffect} from 'react';
-import { BrowserRouter, Route, Switch, Routes, Navigate, useLocation  } from 'react-router-dom'
+import {useState, useEffect} from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 
 import * as sessionActions from './store/session'
 import { wallets } from './store/wallet';
 
-import TickerForm from './components/tickerForm';
 import NavBar from './components/navBar';
 import Ticker from './pages/Ticker';
-import Home from './pages/Home';
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import MainRoutes from './components/mainRoutes';

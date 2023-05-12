@@ -1,7 +1,7 @@
-import react, { useEffect, useState } from 'react';
+
 import { useSelector } from 'react-redux';
 import { csrfFetch } from '../store/csrf';
-import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryGroup, VictoryScatter } from 'victory';
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup } from 'victory';
 import { Link } from 'react-router-dom';
 
 export default function SidePanel ({data, list}) {
