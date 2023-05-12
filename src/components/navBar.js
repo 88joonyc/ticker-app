@@ -84,7 +84,7 @@ export default function NavBar() {
                 </div>
 
                 <div className="flex gap-8 text-lg font-bold">
-                    {session&&<>
+                    {!session&&<>
                         <Link to='/login' className="hover:text-midnightPurple hover:cursor-pointer">Log In</Link>
                         <Link to='/signup' className="hover:text-midnightPurple hover:cursor-pointer">Sign Up</Link>
                     </>}
