@@ -15,21 +15,22 @@ import { stocks } from './store/stock';
 function App() {
   const dispatch = useDispatch();
   const [ isLoaded, setLoaded ] = useState(false)
-  // const location = useLocation();
-
+  const [ id, setId ] = useState() 
 
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setLoaded(true))
-    dispatch(wallets(1))
-    dispatch(stocks(1))
+    dispatch(sessionActions.restoreUser())
+    .then(id => (setId(id)))
+    .then(() => setLoaded(true))
   }, [dispatch])
+  
+  useEffect(() => {
+    dispatch(wallets(id))
+    dispatch(stocks(id))  
+  }, [id])
 
   if (isLoaded === false) {
     <Navigate to="/login" />
   }
-    
-
-  
 
   return (
 
