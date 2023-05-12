@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import createDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -28,7 +28,7 @@ function Root() {
   )
 }
 
-ReactDOM.render(
+createDOM.render(
   <React.StrictMode>
     <Root />
   </React.StrictMode>,
