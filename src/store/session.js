@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import Cookies from 'js-cookie';
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
@@ -29,7 +30,11 @@ export const login = (user) => async (dispatch) => {
     }),
     credentials: "include"
   });
-  const data = await response.json();
+  const data = await response.json();   
+
+  console.log('-=--------------------', response)
+  Cookies.set('token', response, options)
+
   dispatch(setUser(data.user));
   return response;
 };
