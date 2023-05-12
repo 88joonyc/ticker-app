@@ -13,3 +13,8 @@ app.use('/api', router)
 app.get('*', (request, response) => {
   response.sendFile(path.join(__dirname, '../../build/index.html'))
 })
+
+
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => console.log(`listening on port:${PORT}`))
