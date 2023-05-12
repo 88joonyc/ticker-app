@@ -29,7 +29,6 @@ export default function Home () {
 
     useEffect(() => {
         async function run() {
-            console.log('thisisrunning', process.env.REACT_APP_RAILWAY_BACK_URL)
             let response
             try{
                 response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/multiple`, {
