@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { create, update } from "../store/wallet";
+import { create } from "../store/wallet";
 
 import {
   Modal,
@@ -27,7 +27,7 @@ export default function Wallet () {
         e.preventDefault();
         const response = await dispatch(create({userId:session.id, accountType, amount}))
         const data = response.json()
-        if (data.status == "OK") {
+        if (data.status === "OK") {
             console.log(data)
         } else {
             console.log('error', data)

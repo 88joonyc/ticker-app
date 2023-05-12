@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from 'react';
 
-import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryGroup, VictoryScatter } from 'victory';
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup } from 'victory';
 import ControlPanel from '../components/controlPanel';
 import Wallet from '../components/wallet';
 import Ticker from './Ticker';
@@ -53,7 +53,7 @@ export default function Home () {
                 
                 for (let j = 0; j < val.length; j++) {
                     
-                    if (list?.length == val?.length) {
+                    if (list?.length === val?.length) {
                         list[j] = (list[j]+(val[j]?.close * entries.obj[key]?.qty  ))
                     } else {
                         list.push(val[j]?.close)
