@@ -27,7 +27,7 @@ export const login = (user) => async (dispatch) => {
       credential,
       password,
     }),
-    credentials: include
+    credential: true
   });
   const data = await response.json();
   dispatch(setUser(data.user));
