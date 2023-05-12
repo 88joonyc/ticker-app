@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5c77d9a5.css",
+    "main.js": "/static/js/main.8d383ca6.js",
+    "static/js/200.e9db3eb4.chunk.js": "/static/js/200.e9db3eb4.chunk.js",
+    "static/js/539.cb3a906a.chunk.js": "/static/js/539.cb3a906a.chunk.js",
+    "static/js/787.a6244776.chunk.js": "/static/js/787.a6244776.chunk.js",
+    "static/media/batmanlogo.png": "/static/media/batmanlogo.2c9ceb12017a3e188073.png",
+    "index.html": "/index.html",
+    "main.5c77d9a5.css.map": "/static/css/main.5c77d9a5.css.map",
+    "main.8d383ca6.js.map": "/static/js/main.8d383ca6.js.map",
+    "200.e9db3eb4.chunk.js.map": "/static/js/200.e9db3eb4.chunk.js.map",
+    "539.cb3a906a.chunk.js.map": "/static/js/539.cb3a906a.chunk.js.map",
+    "787.a6244776.chunk.js.map": "/static/js/787.a6244776.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c77d9a5.css",
+    "static/js/main.8d383ca6.js"
+  ]
+}
