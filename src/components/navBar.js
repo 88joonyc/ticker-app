@@ -15,9 +15,6 @@ export default function NavBar() {
     const [ showMenu, setShowMenu ] = useState(false);
 
     const session = useSelector(state => state.session.user)
-
-    
-  
     const openMenu = () => {
       if (showMenu) return;
       setShowMenu(true);
@@ -34,11 +31,6 @@ export default function NavBar() {
     
       return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
-
-
-    // headers.append('Content-Type', 'application/json');
-    // headers.append('Accept', 'application/json');
-    // headers.append('Origin','https://ticker-app-api-production.up.railway.app');
 
     useEffect(() => {
         const delayDebounceSearch = setTimeout(async () => {
