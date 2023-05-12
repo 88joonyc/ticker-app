@@ -33,7 +33,7 @@ export const login = (user) => async (dispatch) => {
   const data = await response.json();   
 
   console.log('-=--------------------', response)
-  Cookies.set('token', response, options)
+  Cookies.set('token', response)
 
   dispatch(setUser(data.user));
   return response;
