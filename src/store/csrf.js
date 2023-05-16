@@ -33,8 +33,8 @@ export async function csrfFetch(url, options = {}) {
 }
 
 export function restoreCSRF() {
-    return csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/csrf/restore`, {
-      method: 'GET',
-      credentials:"include"
-    });
+  return csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL_}/api/csrf/restore`, {
+    method: 'GET',
+    credentials: "include",
+  });
 }
