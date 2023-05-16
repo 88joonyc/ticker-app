@@ -9,9 +9,6 @@ export async function csrfFetch(url, options = {}) {
   // if the options.method is not 'GET', then set the "Content-Type" header to
     // "application/json", and set the "XSRF-TOKEN" header to the value of the 
     // "XSRF-TOKEN" cookie
-
-    console.log('------------------------------------cookie-----------',Cookies.get('XSRF-TOKEN'))
-    console.log('------------------------------------token-----------',Cookies.get('token'))
   
     if (options.method.toUpperCase() !== "GET") {
       if (options.headers["Content-Type"] === "multipart/form-data") {
@@ -36,5 +33,8 @@ export async function csrfFetch(url, options = {}) {
 }
 
 export function restoreCSRF() {
-    return csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/csrf/restore`);
+    return csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/csrf/restore`, {
+      method: 'GET',
+      credentials:"include"
+    });
 }
