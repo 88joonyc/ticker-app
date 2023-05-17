@@ -25,8 +25,10 @@ function App() {
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(wallets(user?.id))
-    dispatch(stocks(user?.id))
+    if (user?.id > 0) {
+      dispatch(wallets(user?.id))
+      dispatch(stocks(user?.id))  
+    }
   }, [user?.id])
   
   if (isLoaded === false) {
