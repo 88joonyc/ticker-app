@@ -14,7 +14,7 @@ import { stocks } from './store/stock';
 
 function App() {
   const dispatch = useDispatch();
-  const id = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
 
   const [ isLoaded, setLoaded ] = useState(false)
 
@@ -25,10 +25,9 @@ function App() {
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(wallets(id))
-    dispatch(stocks(id))
+    dispatch(wallets(user?.id))
+    dispatch(stocks(user?.id))
   }, [id])
-
   
   if (isLoaded === false) {
     <Navigate to="/login" />
