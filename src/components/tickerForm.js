@@ -59,19 +59,19 @@ export default function TickerForm () {
         }
 
         await Promise.all([
-            fetch('/api/search', {
+            csrfFetch('/api/search', {
                 method:"POST",
                 headers: {"Content-Type": 'application/json'},
                 body: JSON.stringify(payload)
             }).then(async res => setData(await res.json()))
               .catch(err => console.log(err)),
-            fetch(`/api/ticker/details/${ticker}`)
+            csrfFetch(`/api/ticker/details/${ticker}`)
             .then(async res => await res.json())
             .then(async returndata => {
                 setMeta(returndata);
                 const imageData = returndata.results.branding.logo_url;
                 if (imageData) {
-                    return fetch(imageData, headerOptions, {
+                    return csrfFetch(imageData, headerOptions, {
                         // method: "POST",
                         // headers:  {
                         //     "Content-Type": 'application/json',
@@ -85,7 +85,7 @@ export default function TickerForm () {
                 }
             })
             .catch(err => console.log(err)),
-            fetch(`/api/ticker/news/${ticker}`)
+            csrfFetch(`/api/ticker/news/${ticker}`)
             .then(async res => await res.json())
             .then(data => setNews(data))
             .catch(err => console.log(err))
