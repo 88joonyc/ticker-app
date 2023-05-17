@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     dispatch(wallets(user?.id))
     dispatch(stocks(user?.id))
-  }, [id])
+  }, [user?.id])
   
   if (isLoaded === false) {
     <Navigate to="/login" />
