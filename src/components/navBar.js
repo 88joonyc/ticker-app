@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDebounce } from "use-debounce";
+import { csrfFetch } from "../store/csrf";
 
 import logo from './batmanlogo.png'
 import * as sessionActions from '../store/session'
@@ -36,7 +37,7 @@ export default function NavBar() {
         const delayDebounceSearch = setTimeout(async () => {
             if (searchQuery) {
                 try {
-                    const response = await fetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/by/${searchQuery}`, {
+                    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/by/${searchQuery}`, {
             
                     } )
                     let data 

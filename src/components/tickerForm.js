@@ -1,6 +1,7 @@
 
 import React, { useState } from "react"
 import TickerCharts from "./tickerCharts";
+import { csrfFetch } from "../store/csrf";
 
 export default function TickerForm () {
 

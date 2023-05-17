@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { VictoryChart, VictoryLine, } from 'victory';
+import { csrfFetch } from "../store/csrf";
 
 export default function InfoPanel({ticker}) {
     var today = new Date();
