@@ -11,7 +11,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"bg-lightGray",
+                "color":"lightGray",
                 "position":"normal"
             }
         },
@@ -24,7 +24,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"bg-batmanGold",
+                "color":"batmanGold",
                 "text":"white",
                 "position":"normal"
             }
@@ -32,13 +32,27 @@
         {
             "meta":{
                 "image": "/images/batmanjoker.jpg",
-                "title": "Invest in something and dont be afraid of the dark",
-                "subtitle":"invest in stocks, options, ETFs at your pace and commission 100%",
+                "title": "Invest and let's put a smile on that face",
+                "subtitle":"I believe whatever doesn't kill you, simply makes you.. stranger",
                 "aux":"Investing insurance",
                 "button":"Learn More"
             },
             "options":{
-                "color":"bg-black",
+                "color":"black",
+                "text":"white",
+                "position":"reverse"
+            }
+        },
+        {
+            "meta":{
+                "image": "/images/jokerbatman.jpg",
+                "title": "A villian is just a victum whose story hasn't been told",
+                "subtitle":"How beautiful is to stay silent whne everybody wants you to give a damn",
+                "aux":"Investing insurance",
+                "button":"Learn More"
+            },
+            "options":{
+                "color":"black",
                 "text":"white",
                 "position":"reverse"
             }

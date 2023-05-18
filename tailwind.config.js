@@ -3,14 +3,19 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx}"
   ],
+  safelist: [
+    {
+      pattern: /bg-./
+    }
+  ],
   theme: {
     extend: {
       colors: {
+        'lightGray':'#fcfcfc',
+        'batmanGold':'#5c361c',
         'white': '#ffffff',
-        "black":"#000000",
-        "lightGray":"#fcfcfc",
-        'batmanGold':"#5c361c",
         'midnightPurple': '#280137',
+        'black':'#000000',
       },
     },
   },
