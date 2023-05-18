@@ -16,6 +16,7 @@ export default function NavBar() {
     const [ showMenu, setShowMenu ] = useState(false);
 
     const session = useSelector(state => state.session.user)
+
     const toggleMenu = (e) => {
       e.stopPropagation()
       setShowMenu(!showMenu);
@@ -68,7 +69,7 @@ export default function NavBar() {
                 </Link>
 
                 <div className="mx-auto p-2 relative flex justify-center">
-                    <input className="p-2 pl-8s text-2xl border w-[600px] rounded-md border-grey-100" placeholder="search" onChange={e => setKeyword(e.target.value)}/>
+                    <input className={`p-2 pl-8s text-2xl  w-[600px] rounded-md ${session?.id && 'border'} border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
                     {searchQuery&&<div className="absolute top-[65px] right-[16px]">
                         <div className=" w-[600px] opacity-85 bg-white">
                             {bestMatches.map((matches, idx) => (

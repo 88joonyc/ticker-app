@@ -105,7 +105,7 @@ export default function Home () {
 
                             <VictoryChart padding={{ top: 50, bottom: 50, right: -50, left: -50 }}>
                                 <VictoryGroup  data={list}  y="close" x="none"  >
-                                    <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  ` }}}  />
+                                    <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
                                     <VictoryAxis  offsetY={150} tickFormat={() => ''} />
                                 </VictoryGroup>
                             </VictoryChart>
