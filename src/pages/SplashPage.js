@@ -1,5 +1,5 @@
 import { ImageBanner } from "../components/imageBanner"
-import jsonfile from '../data/splashData.json'
+import jsonfile from '../../public/splashData.json'
 
 export const SplashPage = function () {
     return (
