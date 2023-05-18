@@ -43,7 +43,7 @@ export default function Wallet () {
                             <div className="flex justify-between">
 
                                 <span className='font-bold'>{ wallet ? 'Buying Power' : 'Add Wallet'}</span>
-                                {wallet.length > 0&&<span className='font-medium'>{wallet?.reduce((acc , curr) => acc.buyingPower + curr.buyingPower)}</span>}
+                                {wallet.length > 0&&<span className='font-medium'>${wallet?.reduce((acc , curr) => acc.buyingPower + curr.buyingPower)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>}
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ export default function Wallet () {
                                         <>
                                             <div className="border-b text-blac font-light flex justify-between mb-8">
                                                 <div className="">{funds.accountType} </div>
-                                                <div>{funds.buyingPower} </div>
+                                                <div>${funds.buyingPower?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
                                             </div>
                                         </>
                                     ))}
