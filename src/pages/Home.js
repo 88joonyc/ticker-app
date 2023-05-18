@@ -93,8 +93,8 @@ export default function Home () {
         <>
             {session?.id&&<>
                 <div className='max-w-[1440px] mx-auto'> 
-                    <div className='grid grid-cols-[3fr,1fr] px-6'>
-                        <div className='mr-4'> {/* // may change */}
+                    <div className='grid grid-cols-[78%,22%] px-6'>
+                        <div className='mr-8'> {/* // may change */}
                         <h1 className={`text-4xl `}>
                             ${(list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
@@ -103,7 +103,7 @@ export default function Home () {
                         </div>
                         <div>
 
-                            <VictoryChart padding={{ top: 50, bottom: 50, right: -50, left: -50 }}>
+                            <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
                                 <VictoryGroup  data={list}  y="close" x="none"  >
                                     <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
                                     <VictoryAxis  offsetY={150} tickFormat={() => ''} />
