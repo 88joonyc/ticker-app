@@ -11,7 +11,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"#fcfcfc",
+                "color":"lightGray",
                 "position":"normal"
             }
         },
