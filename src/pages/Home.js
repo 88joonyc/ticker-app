@@ -7,6 +7,7 @@ import Ticker from './Ticker';
 import SidePanel from '../components/sidePanel';
 import { useSelector } from 'react-redux';
 import { csrfFetch } from '../store/csrf';
+import { SplashPage } from './SplashPage';
 
 
 export default function Home () {
