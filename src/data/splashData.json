@@ -52,7 +52,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"black",
+                "color":"midnightPurple",
                 "text":"white",
                 "position":"reverse"
             }
