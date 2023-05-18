@@ -3,28 +3,12 @@ import image from '../'
 
 export const ImageBanner = function ({data}) {
 
-    // const data = {
-    //     "meta":{
-    //         "image": require("../data/307918.jpg"),
-    //         "title": "Invest in something and dont be afraid of the dark",
-    //         "subtitle":"invest in stocks, options, ETFs at your pace and commission 100%",
-    //         "aux":"Investing insurance",
-    //         "button":"Learn More",
-    //     },
-    //     "options":{
-    //         "color":"#fcfcfc",
-    //         "position":"normal"
-    //     }
-    // }
-
     const info = data.meta;
     const outline = data.options
 
-    // const image = require(info.image)
-
     return (
         <>
-            <div className={`bg-[${outline.color}] bg-[] w-full text-${outline?.text}`}>
+            <div className={`bg-${outline.color} w-full text-${outline?.text}`}>
                 <div className="grid grid-cols-[1fr,1fr]">
                     <div>
                         <img className='h-full object-cover' src={`${info.image}`}/>
