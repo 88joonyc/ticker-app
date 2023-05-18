@@ -1,0 +1,47 @@
+{
+    "filename": "spalsh data",
+    "secure": "probably not",
+    "data": [
+        {
+            "meta":{
+                "image": "/images/307918.jpg",
+                "title": "Invest in something and dont be afraid of the dark",
+                "subtitle":"invest in stocks, options, ETFs at your pace and commission 100%",
+                "aux":"Investing insurance",
+                "button":"Learn More"
+            },
+            "options":{
+                "color":"#fcfcfc",
+                "position":"normal"
+            }
+        },
+        {
+            "meta":{
+                "image": "/images/batmangold.jpg",
+                "title": "Crypto dive right in with max commission fees",
+                "subtitle":"The mask is not for you, it's to protect the people you care about",
+                "aux":"Investing with peace",
+                "button":"Learn More"
+            },
+            "options":{
+                "color":"#5c361c",
+                "text":"white",
+                "position":"normal"
+            }
+        },
+        {
+            "meta":{
+                "image": "/images/batmanjoker.jpg",
+                "title": "Invest in something and dont be afraid of the dark",
+                "subtitle":"invest in stocks, options, ETFs at your pace and commission 100%",
+                "aux":"Investing insurance",
+                "button":"Learn More"
+            },
+            "options":{
+                "color":"#000000",
+                "text":"white",
+                "position":"reverse"
+            }
+        }
+    ]
+}

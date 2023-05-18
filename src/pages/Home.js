@@ -11,6 +11,8 @@ import { csrfFetch } from '../store/csrf';
 
 export default function Home () {
 
+    const session = useSelector(state => state?.session?.user)
+
     const [data, setData] = useState({})
 
     const [list, setList] = useState([]);
@@ -88,37 +90,38 @@ export default function Home () {
 
     return (
         <>
-            <div className='max-w-[1440px] mx-auto'> 
-                <div className='grid grid-cols-[3fr,1fr] px-6'>
-                     <div className='mr-4'> {/* // may change */}
-                     <h1 className={`text-4xl `}>
-                        ${(list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                     </h1>
-                     <div className={`text-xl ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
-                        ${(list[0] - avg).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                     </div>
-                     <div>
+            {session?.id&&<>
+                <div className='max-w-[1440px] mx-auto'> 
+                    <div className='grid grid-cols-[3fr,1fr] px-6'>
+                        <div className='mr-4'> {/* // may change */}
+                        <h1 className={`text-4xl `}>
+                            ${(list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        </h1>
+                        <div className={`text-xl ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
+                            ${(list[0] - avg).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        </div>
+                        <div>
 
-                        <VictoryChart padding={{ top: 50, bottom: 50, right: -50, left: -50 }}>
-                            {/* <VictoryArea data={data.AMZN} style={{ data: {fill: "#280137" }}} y="close" /> */}
-                            {/* <VictoryLine data={list}  style={{ data: {stroke: "#280137" }}} y="close" /> */}
-                            {/* <VictoryLine data={data.AAPL}  style={{ data: {stroke: "#280137" }}} y="close" /> */}
-                             <VictoryGroup  data={list}  y="close" x="none"  >
-                                <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  ` }}}  />
-                                <VictoryAxis  offsetY={150} tickFormat={() => ''} />
-                                {/* <VictoryScatter /> */}
-                            </VictoryGroup>
-                        </VictoryChart>
-                     </div>
-                        <Wallet />
-              
+                            <VictoryChart padding={{ top: 50, bottom: 50, right: -50, left: -50 }}>
+                                <VictoryGroup  data={list}  y="close" x="none"  >
+                                    <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  ` }}}  />
+                                    <VictoryAxis  offsetY={150} tickFormat={() => ''} />
+                                </VictoryGroup>
+                            </VictoryChart>
+                        </div>
+                            <Wallet />
+                
+                        </div>
+                        <div>
+                            <SidePanel list={list} data={data} />
+                        </div>
+                        
                     </div>
-                    <div>
-                        <SidePanel list={list} data={data} />
-                    </div>
-                    
-                </div>
-            </div>
+                </div>            
+            </>}
+            {!session?.id&&<>
+                <SplashPage />
+            </>}
         </>
     )
 };
