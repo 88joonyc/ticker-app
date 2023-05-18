@@ -9,9 +9,9 @@ export default function SidePanel ({data, list}) {
 
     return (
         <>
-            <div className='border h-[90vh] overflow-y-scroll no-scrollbar' >
+            <div className='border h-[90vh] mt-8 overflow-y-scroll no-scrollbar' >
                 <div className='w-full border-b px-2 py-4 '>
-                    <div className='w-full '>Stocks</div>
+                    <div className='w-full font-bold'>Stocks</div>
                 </div>
                 <div>
                     {stocks&&data&&stocks?.map((stock, idx) => (
