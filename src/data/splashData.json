@@ -11,7 +11,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"lightGray",
+                "color":"bg-lightGray",
                 "position":"normal"
             }
         },
@@ -24,7 +24,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"batmanGold",
+                "color":"bg-batmanGold",
                 "text":"white",
                 "position":"normal"
             }
@@ -38,7 +38,7 @@
                 "button":"Learn More"
             },
             "options":{
-                "color":"black",
+                "color":"bg-black",
                 "text":"white",
                 "position":"reverse"
             }

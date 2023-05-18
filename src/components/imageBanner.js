@@ -8,7 +8,7 @@ export const ImageBanner = function ({data}) {
 
     return (
         <>
-            <div className={`bg-${outline.color} w-full text-${outline?.text}`}>
+            <div className={`${outline.color} w-full text-${outline?.text}`}>
                 <div className="grid grid-cols-[1fr,1fr]">
                     <div>
                         <img className='h-full object-cover' src={`${info.image}`}/>
