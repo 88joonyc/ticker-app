@@ -8,12 +8,12 @@ export const ImageBanner = function ({data}) {
 
     return (
         <>
-            <div className={`bg-${outline.color} w-full text-${outline?.text}`}>
+            <div className={`bg-${outline?.color} w-full text-${outline?.text}`}>
                 <div className="grid grid-cols-[1fr,1fr]">
                     <div>
                         <img className='h-full object-cover' src={`${info.image}`}/>
                     </div>
-                    <div className="flex flex-col h-[50rem] w-[360px] ml-8">
+                    <div className="flex flex-col h-[45rem] w-[360px] ml-8">
                         <div className="my-auto">
                             <h2 className="text-6xl font-light mb-10">{info.title}</h2>
                             <div className="text-xl pb-8">{info.subtitle}</div>
@@ -22,9 +22,9 @@ export const ImageBanner = function ({data}) {
                         </div>
                     </div>
                 </div>
-                <div className="h-28 flex items-center justify-center">
+                <div className="h-20 flex items-center justify-center text-sm">
                     <div>
-                        Stocks & funds offered through Robinhood Financial. Other fees may apply. See our Fee Schedule for more details.
+                        Stocks & funds offered through Wayne Financial. Other fees may apply. See our Fee Schedule for more details.
                     </div>
                 </div>
 
