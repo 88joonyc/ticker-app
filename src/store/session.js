@@ -82,9 +82,12 @@ export const logout = () => async (dispatch) => {
     const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/session`, {
       method: 'DELETE',
     });
-    Cookies.remove('token')
-    dispatch(removeUser());
-    return response;
+    // Cookies.remove('token', {domain} )
+    // dispatch(removeUser());
+
+    console.log('-----------------response me----------------',response)
+
+    // return response;
   };
 
 export default sessionReducer;
