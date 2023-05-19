@@ -26,8 +26,8 @@ export default function SidePanel ({data, list}) {
                         
                                     <VictoryChart >
                                         <VictoryGroup     >
-                                            <VictoryLine data={data?.[stock?.ticker]} style={{ data: {strokeWidth:1} }} y="close"  />
-                                            <VictoryAxis  style={{ ticks: {stroke: "grey" } }} invertAxis offsetY={150} tickFormat={() => ''} />
+                                            <VictoryLine data={data?.[stock?.ticker]}  style={{  data: { stroke:data?.[stock?.ticker]?.[0]?.close > stock.originalPrice  ? "#22c55e" : "#ef4444", strokeWidth: 2} }} y="close"  />
+                                            <VictoryAxis  style={{ ticks: {stroke: "grey"} }} invertAxis offsetY={150} tickFormat={() => ''} />
                                         </VictoryGroup>
                                     </VictoryChart>
 

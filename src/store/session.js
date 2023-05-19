@@ -82,6 +82,7 @@ export const logout = () => async (dispatch) => {
     const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/session`, {
       method: 'DELETE',
     });
+    localStorage.removeItem('token')
     dispatch(removeUser());
     return response;
   };
