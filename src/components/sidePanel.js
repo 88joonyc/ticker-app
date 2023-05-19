@@ -9,12 +9,12 @@ export default function SidePanel ({data, list}) {
 
     return (
         <>
-            <div className='border h-[90vh] mt-8 overflow-y-scroll no-scrollbar' >
+            <div className='border h-[90vh] mt-8 overflow-y-scroll no-scrollbar text-xs' >
                 <div className='w-full border-b px-2 py-4 '>
-                    <div className='w-full font-bold'>Stocks</div>
+                    <div className='w-full '>Stocks</div>
                 </div>
                 <div>
-                    {stocks&&data&&stocks?.map((stock, idx) => (
+                    {stocks&&data&&stocks?.map(stock => (
                         <>
                             <Link to={`/ticker/${stock.ticker}`}>
                                 <div className={`px-2 py-1 flex justify-between hover:bg-gray-100 text-black`}>
