@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine } from 'victory';
 
-// import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { VictoryChart, VictoryLine, } from 'victory';
-import { csrfFetch } from "../store/csrf";
-
-export default function InfoPanel({ticker}) {
+export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
     var today = new Date();
-    // var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
+    var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
     var dayBefore =  new Date(today.setDate(today.getDate()-2)).toISOString().split('T')[0]
     
-
     // export this fropm a tool
     var dayCounter = function(days) {
         return new Date(today.setDate(today.getDate()-days)).toISOString().split('T')[0]
     }
-
-    // const location = useLocation();
-    // console.log(location)
-    // const ticker = location.ticker
     
     const [multiplier, setMultiplier] = useState(1);
     const [timespan, setTimespan] = useState('minute');
@@ -31,20 +23,12 @@ export default function InfoPanel({ticker}) {
 
     const [day, setDay] = useState(2)
 
-    const [data, setData] = useState({});
-    const [meta, setMeta] = useState({});
-    const [image, setImage] = useState('');
-    const [news, setNews] = useState('');
+
     const [disclose, setDisclose] = useState(false);
 
     const [error, setError] = useState([])
     
-    const headerOptions = {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_POLYGONAPISECRETEKEY}`
-        }
-    }
+ 
 
     const payload = {
         ticker,
@@ -58,55 +42,8 @@ export default function InfoPanel({ticker}) {
     }
 
     useEffect(() => {
-        async function runme() {
-            let data
-            try {
-                data = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
-                    method: 'POST',
-                    headers: {"Content-Type": 'application/json'},
-                    body: JSON.stringify(payload)
-                })
-            } catch (err) {
-                console.log(err)
-            }
-            const response = await data.json();
-            if (response.status === 'OK') {
-                console.log('setup error handling;', response)
-                setDataPoints(response.results)
-            }
-        }
 
-        async function findmeta() {
-            console.log('thisishuitting')
-            await Promise.all([
-                csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
-                    method:"POST",
-                    headers: {"Content-Type": 'application/json'},
-                    body: JSON.stringify(payload)
-                }).then(async res => setData(await res.json()))
-                  .catch(err => console.log(err)),
-                csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/details/${ticker}`)
-                .then(async res => await res.json())
-                .then(async returndata => {
-                    setMeta(returndata);
-                    const imageData = returndata?.results?.branding?.logo_url;
-                    if (imageData) {
-                        return fetch(imageData, headerOptions, {
-                        }).then(async res => setImage(await res.text())).catch(err => console.log(err))
-                        
-                    }
-                })
-                .catch(err => console.log(err)),
-                csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/news/${ticker}`)
-                .then(async res => await res.json())
-                .then(data => setNews(data))
-                .catch(err => console.log(err))
-            ]);
-        } 
-
-        // console.log(start)
-        // runme()
-        findmeta()
+        findmeta(payload)
 
     }, [ticker, start])
 
@@ -125,7 +62,7 @@ export default function InfoPanel({ticker}) {
 
     const handleChange = function (num) {
 
-        if (num === 2) {
+        if (num == 2) {
             setTimespan('minute')
         } else {
             setTimespan('day')
@@ -155,12 +92,12 @@ export default function InfoPanel({ticker}) {
             </VictoryChart>
 
             <div className="flex text-2xl mb-8 ml-4 gap-10">
-                <div type="radio" className={`cursor-pointer ${day === 2 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(2)} value={2}>1D</div>
-                <div type="radio" className={`cursor-pointer ${day === 8 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(8)} value={8}>1W</div>
-                <div type="radio" className={`cursor-pointer ${day === 31 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(31)} value={31}>1M</div>
-                <div type="radio" className={`cursor-pointer ${day === 91 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(91)} value={91}>3M</div>
-                <div type="radio" className={`cursor-pointer ${day === 366 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(366)} value={366}>1Y</div>
-                <div type="radio" className={`cursor-pointer ${day === 1827 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(1827)} value={1827}>5Y</div>
+                <div type="radio" className={`cursor-pointer ${day == 2 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(2)} value={2}>1D</div>
+                <div type="radio" className={`cursor-pointer ${day == 8 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(8)} value={8}>1W</div>
+                <div type="radio" className={`cursor-pointer ${day == 31 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(31)} value={31}>1M</div>
+                <div type="radio" className={`cursor-pointer ${day == 91 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(91)} value={91}>3M</div>
+                <div type="radio" className={`cursor-pointer ${day == 366 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(366)} value={366}>1Y</div>
+                <div type="radio" className={`cursor-pointer ${day == 1827 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(1827)} value={1827}>5Y</div>
             </div>
 
             <div>
