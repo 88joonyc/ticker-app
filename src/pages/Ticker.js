@@ -22,7 +22,7 @@ export default function Ticker () {
         }
     }
 
-        async function findmeta() {
+        async function findmeta(payload) {
             console.log('thisishuitting')
             await Promise.all([
                 csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
