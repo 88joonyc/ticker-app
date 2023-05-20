@@ -81,6 +81,7 @@ export const signup = (user) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/session`, {
       method: 'DELETE',
+      credentials: "include"
     });
     // Cookies.remove('token', {domain} )
     // dispatch(removeUser());
