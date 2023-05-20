@@ -24,7 +24,7 @@ const updateStock = (stock) => {
 };
 
 export const stocks = id => async dispatch => {
-    const response = await csrfFetch(`/api/stock/${id}`)
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/stock/${id}`)
     const data = await response.json();
 
     dispatch(load(data.stocks))
@@ -34,14 +34,12 @@ export const stocks = id => async dispatch => {
 
 export const purchase = (stock) => async dispatch => {
 
-    const response = await csrfFetch(`/api/stock`, {
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/stock`, {
         method: 'POST',
         body: JSON.stringify(stock)
     })
-
     
     const data = await response.json();
-    console.log('hi-----------------------',data)
 
     dispatch(purchaseStock(data))
     return data
@@ -58,10 +56,6 @@ const stockReducer = (state = initialState, action) => {
             action.payload.forEach(stock => {
                 stockList[stock.id] = stock
             })
-            // return {
-            //     ...state,
-            //     ...action.payload
-            // }
             newState = Object.assign({}, state);
             newState.stock = [...action.payload];
             newState.mark = stockList
@@ -69,39 +63,27 @@ const stockReducer = (state = initialState, action) => {
 
             return newState
         case PURCHASE_STOCK:
-            console.log('what-----------------------------------',action)
+            // if stock doesnt exist via backend, add new stock to list
             if (action.payload.response.response.type === "purchase") {
                 newState = Object.assign({}, ...state.stock);
                 newState.stock = [...state.stock, action.payload.response]
                 return newState
             } else {
+                // otherwise spread listed object values and replace the marked value, re-add to list
+                state.mark[action.payload.response.response.id] = action.payload.response.response;
 
-                state.mark[action.payload.response.response.id] = action.payload.response.response
-
-                // console.log(Object.entries(state.mark))
-                let temp = []
+                let temp = [];
 
                 for (const [key, val] of Object.entries(state.mark)){
                     temp.push(val)
-                }
-                // temp[action.payload.response.response.id] = action.payload.response.response
+                };
+  
                 newState = Object.assign({});
-                
-                console.log('==================================ss',state.mark)
-                // newState.stock = [...state.stock, action.payload.response]
                 newState.stock = [...temp];
                 newState.mark = state.mark;
-                return newState
                 
-                // return {
-                //     ...state.stock,
-                //     [action.payload.response.response.id]: action.payload.response.response,
-                // }
+                return newState
             }
-        // case UPDATE_STOCK:
-        //     newState = Object.assign({});
-        //     newState.stock = [...state.stock, action.payload.response]
-        //     return newState
         default:
             return state
     }

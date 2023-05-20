@@ -55,7 +55,7 @@ export const create = (wallet) => async (dispatch) => {
 export const update = (wallet) => async (dispatch) => {
     const { userId, accountType, amount } = wallet;
 
-    const response = await csrfFetch('/api/wallet/update', {
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/wallet/update`, {
         method: 'POST',
         body: JSON.stringify({
             userId,
