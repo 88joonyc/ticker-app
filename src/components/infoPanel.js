@@ -83,12 +83,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
             </div>
 
             <VictoryChart >
-                {/* <VictoryArea data={data.results} style={{ data: {fill: "#280137" }}} y="c" /> */}
-                <VictoryLine data={data.results} style={{ data: {stroke: "#280137" }}} y="c" />
-                {/* <VictoryGroup data={data.results}  y="c" >
-                    <VictoryLine  />
-                    <VictoryScatter />
-                </VictoryGroup> */}
+                <VictoryLine data={data.results} style={{ data: {stroke: "#280137", strokeWidth: 1 }}} y="c" />
             </VictoryChart>
 
             <div className="flex text-2xl mb-8 ml-4 gap-10">
