@@ -34,7 +34,7 @@ export default function SidePanel ({data, list}) {
                                     </div>
                                     <div className='flex items-center'>
                                         <span>{}</span>
-                                        <span>{((data?.[stock?.ticker]?.[0]?.close - stock.originalPrice)*stock.qty).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+                                        <span>{((data?.[stock?.ticker]?.[0]?.close - stock.originalPrice)*stock.qty)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
                                     </div>
                                 </div>
                             </Link>

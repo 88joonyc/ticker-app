@@ -51,7 +51,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
     let pastYield 
     if (data.results) {
         keyStats = data?.results[data?.results?.length-1] 
-        pastYield = (data?.results[data?.results?.length-1].c - data?.results[0].c).toFixed(2)
+        pastYield = (data?.results[data?.results?.length-1].c - data?.results[0].c)?.toFixed(2)
     }
     console.log('this is hit', data)
 

@@ -99,7 +99,7 @@ export default function Home () {
                             ${(list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
                         <div className={`text-xl ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
-                            ${(list[0] - avg).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            ${(list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         <div>
 
