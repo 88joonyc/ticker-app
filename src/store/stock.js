@@ -1,14 +1,30 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD = 'stock/load'
+const PURCHASE_STOCK = 'stock/purchaseStock';
+const UPDATE_STOCK = 'stock/updateStock';
 
 const load = stocks => ({
     type: LOAD,
     payload: stocks
 });
 
+const purchaseStock = (stock) => {
+    return {
+        type: PURCHASE_STOCK,
+        payload: stock,
+    };
+};
+
+const updateStock = (stock) => {
+    return {
+        type: UPDATE_STOCK,
+        payload: stock
+    }
+};
+
 export const stocks = id => async dispatch => {
-    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/stock/${id}`)
+    const response = await csrfFetch(`/api/stock/${id}`)
     const data = await response.json();
 
     dispatch(load(data.stocks))
@@ -16,17 +32,14 @@ export const stocks = id => async dispatch => {
     return response
 }
 
-
 export const purchase = (stock) => async dispatch => {
 
     const response = await csrfFetch(`/api/stock`, {
         method: 'POST',
         body: JSON.stringify(stock)
     })
-
     
     const data = await response.json();
-    console.log('hi-----------------------',data)
 
     dispatch(purchaseStock(data))
     return data
@@ -34,6 +47,7 @@ export const purchase = (stock) => async dispatch => {
 }
 
 const initialState = { stock: [] };
+
 
 const stockReducer = (state = initialState, action) => {
     let newState;
