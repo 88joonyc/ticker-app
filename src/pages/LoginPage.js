@@ -20,7 +20,6 @@ function LoginPage() {
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
-        console.log('thisistoken-------------------------------------------------',res.headers(['token']))
         if (data && data.errors) setErrors(data.errors);
       });
   };

@@ -83,12 +83,9 @@ export const logout = () => async (dispatch) => {
       method: 'DELETE',
       credentials: "include"
     });
-    // Cookies.remove('token', {domain} )
-    // dispatch(removeUser());
+    dispatch(removeUser());
 
-    console.log('-----------------response me----------------',response)
-
-    // return response;
+    return response;
   };
 
 export default sessionReducer;
