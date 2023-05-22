@@ -39,7 +39,7 @@ export default function Wallet () {
             const response = await dispatch(update({
                 userId: session.id,
                 accountType,
-                amount: amount
+                amount
             }))
             if (response?.wallet?.id) {
                 alert('funds added to wallet!')
@@ -47,6 +47,7 @@ export default function Wallet () {
             } else {
                 // add error content
                 alert('something is wrong')
+                console.log('error--------------------------------------------',response)
             }             
         }
     }
