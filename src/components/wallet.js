@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { create } from "../store/wallet";
+import { create, update } from "../store/wallet";
 
 import {
   Modal,
