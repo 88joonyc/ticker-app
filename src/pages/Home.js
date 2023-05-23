@@ -8,6 +8,7 @@ import SidePanel from '../components/sidePanel';
 import { useSelector } from 'react-redux';
 import { csrfFetch } from '../store/csrf';
 import { SplashPage } from './SplashPage';
+import Cookies from 'js-cookie';
 
 
 export default function Home () {
@@ -89,6 +90,8 @@ export default function Home () {
         return {pass, obj}
     };
 
+    const sessionToken = Cookies.get('token');
+
     return (
         <>
             {session?.id&&<>
@@ -120,7 +123,7 @@ export default function Home () {
                     </div>
                 </div>            
             </>}
-            {!session?.id&&<>
+            {!sessionToken&&<>
                 <SplashPage />
             </>}
         </>
