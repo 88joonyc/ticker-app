@@ -25,7 +25,7 @@ export default function Wallet () {
 
     const deposit = async function (e) {
         e.preventDefault();
-        const data = await response.json()
+        const existing = wallet.filter(bank => bank.accountType === accountType) 
         if (!existing.length > 0) {
             const response = await dispatch(create({userId:session.id, accountType, amount}))
             const data = await response.json()
