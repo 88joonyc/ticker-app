@@ -25,30 +25,13 @@ export default function Wallet () {
 
     const deposit = async function (e) {
         e.preventDefault();
-        const existing = wallet.filter(bank => bank.accountType === accountType) 
-        if (!existing.length > 0) {
-            const response = await dispatch(create({userId:session.id, accountType, amount}))
-            const data = await response.json()
-            if (data.status == "OK") {
-                alert('Wallet has been added!')
-                setOpenWallet(false)
-            } else {
-                console.log('error', data)
-            }
+        const response = await dispatch(create({userId:session.id, accountType, amount}))
+        const data = await response.json()
+        if (data.status == "OK") {
+            alert('Funds have been added to wallet!')
+            setOpenWallet(false)
         } else {
-            const response = await dispatch(update({
-                userId: session.id,
-                accountType,
-                amount
-            }))
-            if (response?.wallet?.id) {
-                alert('funds added to wallet!')
-                setOpenWallet(false)
-            } else {
-                // add error content
-                alert('something is wrong')
-                console.log('error--------------------------------------------',response)
-            }             
+            console.log('error', data)
         }
     }
 
