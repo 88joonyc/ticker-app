@@ -67,7 +67,7 @@ export const update = (wallet) => async (dispatch) => {
     const data = await response.json();
     dispatch(updateWallet(data.wallet));
     
-    return data
+    return response
 
 };
 
