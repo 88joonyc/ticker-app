@@ -23,7 +23,7 @@ export default function ControlPanel ({ticker, data}) {
         const isuserbroke = await dispatch(update({
             userId,
             accountType: account,
-            amount: data?.results[data?.results?.length-1]?.c * qty 
+            amount: -data?.results[data?.results?.length-1]?.c * qty 
         })
         )
 
