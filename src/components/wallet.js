@@ -42,8 +42,7 @@ export default function Wallet () {
                 accountType,
                 amount: amount
             }))
-            console.log('checkme------------------------',response)
-            if (response?.wallet?.id) {
+            if (response.status === 200) {
                 alert('funds added to wallet!')
                 setOpenWallet(false)
             } else {
