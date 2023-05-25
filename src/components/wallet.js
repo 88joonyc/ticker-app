@@ -67,7 +67,7 @@ export default function Wallet () {
                     </div>
                     <>
                         <div className={`w-full mx-auto border absolute top-[80px] border-t hover:text-black transition-[height] rounded-b-xl linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[250px] ' : '  h-0 ' }`}>
-                            <div className={`grid grid-cols-[1fr,1fr] mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
+                            <div className={`grid md:grid-cols-[1fr,1fr] mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
                                 <div class="">
                                     {wallet && wallet?.map(funds => (
                                         <>
@@ -79,7 +79,7 @@ export default function Wallet () {
                                     ))}
                                     <button onClick={() => setOpenWallet(!openWallet)} className="px-16 py-3 text-sm font-bold text-white bg-midnightPurple w-full rounded-full mt-6">Deposit Funds</button>
                                 </div>
-                                <div className="font-light text-black mx-8">
+                                <div className="font-light text-black mx-8 hidden md:block">
                                 Buying power represents the total value of assets you can purchase.
                                 </div>
 

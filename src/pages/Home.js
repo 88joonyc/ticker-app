@@ -8,7 +8,6 @@ import SidePanel from '../components/sidePanel';
 import { useSelector } from 'react-redux';
 import { csrfFetch } from '../store/csrf';
 import { SplashPage } from './SplashPage';
-import Cookies from 'js-cookie';
 
 
 export default function Home () {
@@ -90,14 +89,12 @@ export default function Home () {
         return {pass, obj}
     };
 
-    const token = Cookies.get('token')
-
     return (
         <>
             {session?.id&&<>
                 <div className='max-w-[1440px] mx-auto'> 
-                    <div className='grid grid-cols-[78%,22%] px-6'>
-                        <div className='mr-8'> {/* // may change */}
+                    <div className='grid md:grid-cols-[78%,22%] px-6'>
+                        <div className='md:mr-8'> {/* // may change */}
                         <h1 className={`text-4xl `}>
                             ${list[0] > 0 ? (list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </h1>
@@ -123,7 +120,7 @@ export default function Home () {
                     </div>
                 </div>            
             </>}
-            {!token&&<>
+            {!session?.id&&<>
                 <SplashPage />
             </>}
         </>
