@@ -83,7 +83,7 @@ export default function NavBar() {
                     </div>}
                 </div>
 
-                <div className="flex gap-8 text-xs font-medium">
+                <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
                         <Link to='/login' className="hover:text-midnightPurple hover:cursor-pointer">Log In</Link>
                         <Link to='/signup' className="hover:text-midnightPurple hover:cursor-pointer">Sign Up</Link>
