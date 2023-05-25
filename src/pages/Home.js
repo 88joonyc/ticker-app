@@ -89,6 +89,8 @@ export default function Home () {
         return {pass, obj}
     };
 
+    const token = Cookies.get('token')
+
     return (
         <>
             {session?.id&&<>
@@ -96,10 +98,10 @@ export default function Home () {
                     <div className='grid grid-cols-[78%,22%] px-6'>
                         <div className='mr-8'> {/* // may change */}
                         <h1 className={`text-4xl `}>
-                            ${(list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            ${list[0] > 0 ? (list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </h1>
                         <div className={`text-xl ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
-                            ${(list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            ${list[0] - avg > 0 ? (list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </div>
                         <div>
 
@@ -120,7 +122,7 @@ export default function Home () {
                     </div>
                 </div>            
             </>}
-            {!session?.id&&<>
+            {!token&&<>
                 <SplashPage />
             </>}
         </>
