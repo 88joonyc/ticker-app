@@ -29,8 +29,8 @@ function SignupPage() {
 
   return (
     <>
-        <div className="grid grid-cols-[1fr,1fr] relative">
-            <div className="border-r-2 border-black h-[100vh] ">
+        <div className="grid md:grid-cols-[1fr,1fr] relative">
+            <div className="border-r-2 border-black h-[100vh] hidden md:block">
                 <img className="object-cover w-[100vw] h-[100vh]" src="https://w0.peakpx.com/wallpaper/905/425/HD-wallpaper-im-batman-929-amoled-bat-black-dark-hero-logo-man-marvel-minimal-minimalist-night-simple-super-vector-white.jpg"/>
                 <div className="absolute top-[200px] text-white text-6xl">
                     <div className="ml-20 mr-30 w-[35%] font-light">
@@ -43,11 +43,11 @@ function SignupPage() {
 
             </div>
             <div className=" relative">
-                <form className="ml-20" onSubmit={handleSubmit}>
+                <form className="ml-4 md:ml-20 h-[90vh] md:h-auto" onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <div className="w-full pr-20 mt-40">
+                    <div className="w-full pr-4 md:pr-20 mt-40">
                         <div className="text-lg">
                             Enter your first and last name as they appear on your government ID.
                         </div>
@@ -94,7 +94,7 @@ function SignupPage() {
                         <div>Already started?</div>
                         <Link className="underline underline-offset-4 hover:text-gray-600" to='/login'>Log in to complete your application</Link>
                     </div>
-                <div className="absolute bottom-8 right-0 h-200px w-full border-t-2 border-black">
+                <div className="absolute bottom-8 right-0 w-full border-t-2 border-black">
                     <button className="py-4 bg-black text-white font-bold text-xs rounded-full px-16 float-right mr-10 mt-8 hover:bg-gray-600" type="submit">Continue</button>
 
                 </div>
