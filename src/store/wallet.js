@@ -71,6 +71,25 @@ export const update = (wallet) => async (dispatch) => {
 
 };
 
+export const directUpdate = (wallet) => async (dispatch) => {
+    const { userId, accountType, amount } = wallet;
+
+    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/wallet/update`, {
+        method: 'POST',
+        body: JSON.stringify({
+            amount,
+            userId,
+            accountType,
+        }),
+    });
+
+    const data = await response.json();
+    dispatch(updateWallet(data.wallet));
+    
+    return response
+
+};
+
 const initialState = { wallet: [] };
 
 const walletReducer = (state = initialState, action) => {
@@ -90,16 +109,17 @@ const walletReducer = (state = initialState, action) => {
             newState.wallet = [...state.wallet, action.payload];
             return newState;
         case UPDATE_WALLET:
-            state.mark[action.payload.id] = action.payload
-            let temp = []
-            for (const [key, val] of Object.entries(state.mark)) {
-                temp.push(val);
-            };
-            newState = Object.assign({})
-            newState.wallet = [...temp]
-            newState.mark = state.mark
-            return newState
-
+            if (action.payload.status === 200) {
+                state.mark[action.payload.id] = action.payload
+                let temp = []
+                for (const [key, val] of Object.entries(state.mark)) {
+                    temp.push(val);
+                };
+                newState = Object.assign({})
+                newState.wallet = [...temp]
+                newState.mark = state.mark
+                return newState
+            }
         default:
             return state
     }

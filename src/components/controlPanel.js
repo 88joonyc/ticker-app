@@ -1,7 +1,7 @@
 import react, { useState } from 'react';
 import { purchase } from '../store/stock';
 import { useDispatch, useSelector } from 'react-redux';
-import { update } from '../store/wallet';
+import { directUpdate } from '../store/wallet';
 import { useNavigate } from 'react-router-dom';
 
 export default function ControlPanel ({ticker, data}) {
@@ -20,10 +20,10 @@ export default function ControlPanel ({ticker, data}) {
         e.preventDefault()
         console.log( data?.results[data?.results?.length-1]?.c * qty )
 
-        const isuserbroke = await dispatch(update({
+        const isuserbroke = await dispatch(directUpdate({
             userId,
             accountType: account,
-            amount: -data?.results[data?.results?.length-1]?.c * qty 
+            amount: data?.results[data?.results?.length-1]?.c * qty 
         })
         )
 

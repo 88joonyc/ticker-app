@@ -5,13 +5,18 @@ import sessionReducer from './session';
 import walletReducer from './wallet';
 import stockReducer from './stock';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     session: sessionReducer,
     wallet: walletReducer,
     stock: stockReducer,
-
 });
 
+const rootReducer = (state, action) => {
+    if (action.type == 'session/removeUser') {
+        return appReducer(undefined, 'RESET')
+    }
+    return appReducer(state, action)
+}
 let enhancer;
 
 if (process.env.NODE_ENV === "production") {
