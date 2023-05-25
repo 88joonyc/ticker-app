@@ -71,7 +71,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
         setStart(dayCounter(num))
     }
     return (
-        <div>
+        <div className="mr-4 md:mr-0">
             <div>
                 <h1 className="text-4xl mb-4 mt-8 ml-4">{meta.results?.name}</h1>
                 {data.results&&(
