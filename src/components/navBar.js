@@ -68,12 +68,12 @@ export default function NavBar() {
                 </Link>
 
                 <div className="mx-auto p-2 relative flex justify-center">
-                    <input className={`px-2 py-3 pl-8s text-sm  w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
-                    {searchQuery&&<div className="absolute top-[53px] right-[8px]">
-                        <div className=" w-[500px] opacity-85 bg-white">
+                    <input className={`px-2 py-3 pl-8s text-sm lg:w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
+                    {searchQuery&&<div className="absolute top-[53px] md:right-[8px]">
+                        <div className="w-[80vw] md:w-[500px] opacity-85 bg-white">
                             {bestMatches.map((matches, idx) => (
                                 <Link to={`/ticker/${matches['1. symbol']}`} key={`${matches['1. symbol']} -- ${idx}`} onClick={() => setKeyword('')}>
-                                    <div className="border p-3 text-xs flex justify-between hover:text-white hover:bg-midnightPurple">
+                                    <div className="border p-3  text-xs flex justify-between hover:text-white hover:bg-midnightPurple">
                                         <div >{matches['1. symbol']}</div>
                                         <div >{matches['2. name']}</div>
                                     </div>
