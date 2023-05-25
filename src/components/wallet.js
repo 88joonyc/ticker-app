@@ -92,9 +92,9 @@ export default function Wallet () {
             </div>
             <div className={`bg-white transition-translate ease-in duration-[0.5s] ${openWallet ? 'translate-y-0  absolute top-0 right-0  h-full w-[100vw] z-[100]' : ' translate-y-[100vh]'}  `}>
                 <div className={`${openWallet ? '' : ' hidden'}`}>
-                    <button className="absolute right-20 top-10 text-8xl z-[200] cursor-pointer " onClick={() => setOpenWallet(false)}>X</button>
+                    <button className="absolute right-4 md:right-20 top-4 md:top-10 text-2xl md:text-8xl z-[200] cursor-pointer " onClick={() => setOpenWallet(false)}>X</button>
                     <div className="relative w-full h-full flex justify-center items-center ">
-                        <div className="text-8xl  border h-[600px] w-[500px] bg-white mt-40"> 
+                        <div className="text-8xl  border h-[100vh] md:h-[600px] w-[500px] bg-white mt-0 md:mt-40"> 
                             <div className="mx-4 mt-20 text-base">
                                 <div className="text-2xl mb-16"> Transfer Money
 
