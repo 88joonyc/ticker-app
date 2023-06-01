@@ -35,7 +35,7 @@ function LoginPage() {
   return (
     <>
         <div className='grid grid-cols-[1fr,1fr]'>
-        <img className='object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
+        <img className='hidden md:block object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
         <div className=''>
           <form onSubmit={handleSubmit}>
             <ul>
