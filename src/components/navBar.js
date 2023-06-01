@@ -86,7 +86,7 @@ export default function NavBar() {
                 <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
                         <Link to='/login' className="hover:text-midnightPurple hover:cursor-pointer">Log In</Link>
-                        <Link to='/signup' className="hover:text-midnightPurple hover:cursor-pointer">Sign Up</Link>
+                        <Link to='/signup' className="hover:text-midnightPurple hover:cursor-pointer ml-4 md:ml-0">Sign Up</Link>
                     </>}
                     {session&&<>
                         <div className="hover:cursor-pointer" onClick={toggleMenu}>Account</div>
