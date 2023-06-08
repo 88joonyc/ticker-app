@@ -60,15 +60,15 @@ export default function NavBar() {
         dispatch(sessionActions.logout());
       };
 
-    return (
+      return (
         <div className={`mx-auto sticky z-40 bg-white top-0 left-0  ${!session?.id && 'border'}`}>
-            <div className="max-w-[1440px] flex mx-auto items-center px-4 justify-between">
+            <div className=" flex mx-auto items-center px-4 justify-between">
                 <Link to='/' className="">
                     <img className="w-[120px] h-[20px] object-contain" src={logo} />
                 </Link>
 
                 <div className="mx-auto p-2 relative flex justify-center">
-                    <input className={`px-2 py-3 pl-8s text-sm lg:w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
+                    <input className={`px-2 py-2 text-sm lg:w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
                     {searchQuery&&<div className="absolute top-[53px] md:right-[8px]">
                         <div className="w-[80vw] md:w-[500px] opacity-85 bg-white">
                             {bestMatches.map((matches, idx) => (
@@ -85,20 +85,20 @@ export default function NavBar() {
 
                 <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
-                        <Link to='/login' className="hover:text-midnightPurple hover:cursor-pointer">Log In</Link>
-                        <Link to='/signup' className="hover:text-midnightPurple hover:cursor-pointer ml-4 md:ml-0">Sign Up</Link>
+                        <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer">Log In</Link>
+                        <Link to='/signup' className="hover:text-highlightPurple hover:cursor-pointer">Sign Up</Link>
                     </>}
                     {session&&<>
-                        <div className="hover:cursor-pointer" onClick={toggleMenu}>Account</div>
-                        <div>
+                        <div className="hover:text-highlightPurple hover:cursor-pointer" onClick={toggleMenu}>Account</div>
+                        <div className="relative ">
                         {showMenu && (
-                            <ul className="absolute border top-0 right-0">
+                            <ul className="absolute border top-6 right-0 w-60 bg-white shadow-xl">
                                 {/* <li>{user.username}</li> */}
-                                {/* <li>{user.email}</li> */}
-                                <li>
-                                    <div>{session?.fullName}</div>
-                                    <button onClick={logout}>Log Out</button>
+                                <li className="border-b">
+                                    <div className="h-10 flex items-center p-4">{session?.fullName}</div>
                                 </li>
+                                <li className="h-10 flex items-center p-4 hover:bg-fadedPurple ">Gotham's Gold</li>
+                                <button className="h-10 flex items-center p-4 w-full hover:bg-fadedPurple " onClick={logout}>Log Out</button>
                                 </ul>
                             )}
                         </div>
