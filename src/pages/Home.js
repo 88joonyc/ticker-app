@@ -15,6 +15,7 @@ export default function Home () {
     const session = useSelector(state => state?.session?.user)
 
     const [data, setData] = useState({})
+    const [openWallet, setOpenWallet] = useState(false); 
 
     const [list, setList] = useState([]);
     const [orig, setOrigi] = useState({});
@@ -110,7 +111,7 @@ export default function Home () {
                                 </VictoryGroup>
                             </VictoryChart>
                         </div>
-                            <Wallet />
+                            <Wallet openWallet={openWallet} setOpenWallet={setOpenWallet}/>
                 
                         </div>
                         <div>

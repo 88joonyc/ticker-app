@@ -10,7 +10,7 @@ import {
 
 initTE({ Modal, Ripple });
 
-export default function Wallet () {
+export default function Wallet ({openWallet, setOpenWallet}) {
 
     const dispatch = useDispatch(); 
 
