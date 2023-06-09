@@ -122,7 +122,7 @@ export default function Home ({isLoaded}) {
                 
                         </div>
                         <div>
-                            {openWallet&&<SidePanel list={list} data={data} />}
+                            {!openWallet&&<SidePanel list={list} data={data} />}
                         </div>
                         
                     </div>
