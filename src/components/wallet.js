@@ -55,7 +55,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
         <>
             <div className={`transition-[height]  linear duration-[.2s] ${toggle ? "h-[305px] md:h-[305px]" : " h-[130px]"} relative`}>
                 <div className="relative ">
-                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t-xl border' : 'text-black bg-white'} hover:cursor-pointer flex flex-col justify-center border-b`}>
+                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t border' : 'text-black bg-white'} hover:cursor-pointer flex flex-col justify-center border-b`}>
                         <div className='flex mx-2 md:mx-6 flex-col justify-between relative '>
                             <div className="flex justify-between text-sm md:text-lg">
 
@@ -65,9 +65,9 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                         </div>
                     </div>
                     <>
-                        <div className={`w-full mx-auto border absolute top-[80px] border-t text-sm md:text-base hover:text-black transition-[height] md:rounded-b-xl linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[225px] md:h-[250px]' : '  h-0 ' }`}>
+                        <div className={`w-full mx-auto border absolute top-[80px] border-t text-sm md:text-base hover:text-black transition-[height] md:rounded-b linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[225px] md:h-[250px]' : '  h-0 ' }`}>
                             <div className={`grid md:grid-cols-[1fr,1fr] mx-2 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
-                                <div class="">
+                                <div>
                                     {wallet && wallet?.map(funds => (
                                         <div key={`userwallet-${funds.id}`}>
                                             <div className="border-b text-blac font-light flex justify-between mb-8">
@@ -76,7 +76,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                                             </div>
                                         </div>
                                     ))}
-                                    <button onClick={() => (setOpenWallet(!openWallet)) } className="px-16 py-3 text-xs md:text-sm font-bold text-white bg-midnightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
+                                    <button onClick={() => (setOpenWallet(!openWallet)) } className="px-16 py-3 text-xs font-bold text-white bg-midnightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
                                 </div>
                                 <div className="font-light text-black mx-8 hidden md:block">
                                 Buying power represents the total value of assets you can purchase.
@@ -91,7 +91,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
             </div>
             <div className={`bg-white transition-translate ease-in duration-[0.5s] ${openWallet ? 'translate-y-0  absolute top-0 right-0  h-full w-[100vw] z-[100]' : ' translate-y-[100vh]'}  `}>
                 <div className={`${openWallet ? '' : ' hidden'}`}>
-                    <button className="absolute right-4 md:right-20 top-4 md:top-10 text-2xl md:text-8xl z-[200] cursor-pointer " onClick={() => setOpenWallet(false)}>X</button>
+                    <button className="absolute right-4 md:right-10 top-4 md:top-4 text-md md:text-xl z-[200] h-12 w-12 cursor-pointer rounded-full hover:bg-fadedPurple" onClick={() => setOpenWallet(false)}>X</button>
                     <div className="relative w-full h-full flex justify-center items-center ">
                         <div className="text-8xl  border h-[100vh] md:h-[600px] w-[500px] bg-white mt-0 md:mt-40"> 
                             <div className="mx-4 mt-20 text-base">
