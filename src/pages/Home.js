@@ -57,7 +57,7 @@ export default function Home ({isLoaded}) {
                 
                 for (let j = 0; j < val.length; j++) {
                     
-                    if (list?.length === val?.length) {
+                    if (list?.length == val?.length) {
                         list[j] = (list[j]+(val[j]?.close * entries.obj[key]?.qty  ))
                     } else {
                         list.push(val[j]?.close)
@@ -65,23 +65,25 @@ export default function Home ({isLoaded}) {
                 }
             }
             setList(list.reverse())  
-            return list
+
+            return entries
         }
         
-        if (stocks?.length > 0 && once) {
+        if (stocksData?.length > 0&&once) {
             run()
             .then((data) => original(data))
             .then((data) => complete(data))
+            .then(entries => currentPrice(entries, orig))
             .catch(err => console.log(err))
             
             setOnce(false)
         }
-    }, [stocks])
+    }, [stocksData, data])
     
     const original = function (pass) {
         let obj = {}
         let sum = 0
-        stocks.forEach(tick => {
+        stocksData.forEach(tick => {
             sum += (tick.originalPrice * tick.qty)
             obj[tick.ticker]={ qty: tick?.qty, originalPrice: tick?.originalPrice} 
         })  
@@ -90,40 +92,57 @@ export default function Home ({isLoaded}) {
         return {pass, obj}
     };
 
+    console.log(current)
+
+    const currentPrice = function ({pass, obj}) {
+        let current = 0
+        let total = 0
+        for (const [key, val] of Object.entries(pass)) {
+            current += (pass[key][0].close  * obj[key].qty) - (obj[key].originalPrice*obj[key].qty)
+            total += (pass[key][0].close  * obj[key].qty)
+        }
+        setCurrent(current)
+        setTotal(total)
+    }
+
     return (
         <>
             {session?.id&&<>
                 <div className='max-w-[1440px] mx-auto'> 
                     <div className='grid md:grid-cols-[75%,25%] md:px-6'>
                         <div className='md:mr-8'> {/* // may change */}
-                        <h1 className={`text-2xl md:text-4xl ml-2 md:ml-0`}>
-                            ${list[0] > 0 ? (list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
+                        <h1 className={`mt-8 text-2xl md:text-4xl ml-2 md:ml-0`}>
+                            ${(total)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
-                        <div className={`text-xl ml-2 md:ml-0 ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
-                            ${list[0] - avg > 0 ? (list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
+                        <div className={`text-xl ml-2 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
+                            {current > 0 && '+'}${(current).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
-                        <div className='hidden md:block'>
-                            <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
-                                <VictoryGroup  data={list}  y="close" x="none"  >
-                                    <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
-                                    <VictoryAxis  offsetY={100} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
-                                </VictoryGroup>
-                            </VictoryChart>
-                        </div>
-                        <div className='md:hidden'>
-                            <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
-                                <VictoryGroup  data={list}  y="close" x="none"  >
-                                    <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
-                                    <VictoryAxis  offsetY={200} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
-                                </VictoryGroup>
-                            </VictoryChart>
-                        </div>
+                        {!openWallet&&<>
+                            <div className='hidden md:block'>
+                                <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
+                                    <VictoryGroup  data={stocksData ? list : unused}  y="close" x="none"  >
+                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
+                                        <VictoryAxis  offsetY={100} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
+                                        {/* <VictoryScatter /> */}
+                                    </VictoryGroup>
+                                </VictoryChart>
+                            </div>
+                            <div className='md:hidden'>
+                                <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
+                                    <VictoryGroup  data={stocksData ? list : unused}  y="close" x="none"  >
+                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
+                                        <VictoryAxis  offsetY={200} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
+                                    </VictoryGroup>
+                                </VictoryChart>
+                            </div>
+                        </>}
                             <Wallet openWallet={openWallet} setOpenWallet={setOpenWallet}/>
                 
                         </div>
-                        <div>
-                            {!openWallet&&<SidePanel list={list} data={data} />}
-                        </div>
+
+                        {!openWallet&&<div>
+                            <SidePanel list={list} data={data} />
+                        </div>}
                         
                     </div>
                 </div>            
