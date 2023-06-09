@@ -21,6 +21,8 @@ export default function Home ({isLoaded}) {
     const [orig, setOrigi] = useState({});
     const [once, setOnce] = useState(true)
     const [avg, setAvg] = useState(0)
+    const [current, setCurrent] = useState(0)
+    const [total, setTotal] = useState(0)
 
     const stocks = useSelector(state => state?.stock?.stock)
     const today = new Date();
