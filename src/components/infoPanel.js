@@ -80,11 +80,18 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                     </div>
                 )}
             </div>
-
-            <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }}>
-                <VictoryLine data={data.results} style={{ data: {stroke: "#280137" }}} y="c" />
-                <VictoryAxis style={{ axis: {stroke: "transparent"}, ticks: {stroke: "transparent"}, tickLabels: { fill:"transparent"} }}/>
-            </VictoryChart> 
+            <div className="md:hidden">
+                <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }}>
+                    <VictoryLine data={data.results} style={{ data: {stroke: "#280137" }}} y="c" />
+                    <VictoryAxis style={{ axis: {stroke: "transparent"}, ticks: {stroke: "transparent"}, tickLabels: { fill:"transparent"} }}/>
+                </VictoryChart> 
+            </div>
+            <div className="hidden md:block">
+                <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }}>
+                    <VictoryLine data={data.results} style={{ data: {stroke: "#280137" }}} y="c" />
+                    <VictoryAxis style={{ axis: {stroke: "transparent"}, ticks: {stroke: "transparent"}, tickLabels: { fill:"transparent"} }}/>
+                </VictoryChart> 
+            </div>
 
             <div className="mr-2 md:mr-0">
 
