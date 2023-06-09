@@ -54,7 +54,7 @@ export default function Ticker () {
         <>
             <div className="max-w-[1440px] mx-auto">
                 <div className="relative">
-                     <div className="grid md:grid-cols-[3fr,1fr] gap-x-20">
+                     <div className="grid md:grid-cols-[2.5fr,1.2fr] gap-x-20 md:px-4">
                         <div>
                             <InfoPanel ticker={ticker} data={data} meta={meta} image={image} news={news} findmeta={findmeta} />
                         </div>
