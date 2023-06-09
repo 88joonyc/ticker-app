@@ -10,7 +10,7 @@ import { csrfFetch } from '../store/csrf';
 import { SplashPage } from './SplashPage';
 
 
-export default function Home () {
+export default function Home ({isLoaded}) {
 
     const session = useSelector(state => state?.session?.user)
 
@@ -128,7 +128,7 @@ export default function Home () {
                     </div>
                 </div>            
             </>}
-            {!session?.id&&<>
+            {!session?.id&&isLoaded&&<>
                 <SplashPage />
             </>}
         </>

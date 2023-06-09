@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import Home from "../pages/Home";
 
 
-export default function MainRoutes () {
+export default function MainRoutes ({isLoaded}) {
 
     const session = useSelector(state => state.session.user);
 
@@ -15,7 +15,7 @@ export default function MainRoutes () {
         <>      
         <NavBar />
         <Routes>
-            <Route  path='/' element={<> <Home /></>} />
+            <Route  path='/' element={<> <Home isLoaded={isLoaded} /></>} />
             {/* <Route  path='/ticker/:ticker' element={<Ticker /> } /> */}
         </Routes>
         </>

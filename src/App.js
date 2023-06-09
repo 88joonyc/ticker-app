@@ -41,7 +41,7 @@ function App() {
   
       <Routes>
         
-        <Route path='/' element={ <MainRoutes /> } />
+        <Route path='/' element={ <MainRoutes isLoaded={isLoaded} /> } />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />  
         {/* <Route  path='/' element={<> <Home /></>} /> */}
