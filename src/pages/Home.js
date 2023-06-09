@@ -69,7 +69,7 @@ export default function Home ({isLoaded}) {
             return entries
         }
         
-        if (stocksData?.length > 0&&once) {
+        if (stocks?.length > 0&&once) {
             run()
             .then((data) => original(data))
             .then((data) => complete(data))
@@ -78,12 +78,12 @@ export default function Home ({isLoaded}) {
             
             setOnce(false)
         }
-    }, [stocksData, data])
+    }, [stocks, data])
     
     const original = function (pass) {
         let obj = {}
         let sum = 0
-        stocksData.forEach(tick => {
+        stocks.forEach(tick => {
             sum += (tick.originalPrice * tick.qty)
             obj[tick.ticker]={ qty: tick?.qty, originalPrice: tick?.originalPrice} 
         })  
@@ -91,8 +91,6 @@ export default function Home ({isLoaded}) {
         setAvg(sum)
         return {pass, obj}
     };
-
-    console.log(current)
 
     const currentPrice = function ({pass, obj}) {
         let current = 0
