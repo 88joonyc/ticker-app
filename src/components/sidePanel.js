@@ -15,7 +15,7 @@ export default function SidePanel ({data, list}) {
                 </div>
                 <div>
                     {stocks&&data&&stocks?.map(stock => (
-                        <>
+                        <div key={`stock-identifier-${stock.id}`}>
                             <Link to={`/ticker/${stock.ticker}`}>
                                 <div className={`px-2 py-1 flex justify-between hover:bg-gray-100 text-black`}>
                                     <div className='flex flex-col justify-center'>
@@ -38,7 +38,7 @@ export default function SidePanel ({data, list}) {
                                     </div>
                                 </div>
                             </Link>
-                        </>
+                        </div>
                     ))}
                 </div>
             </div>
