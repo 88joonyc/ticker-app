@@ -18,7 +18,6 @@ export default function Wallet ({openWallet, setOpenWallet}) {
     const wallet = useSelector(state => state.wallet.wallet)
 
     const [toggle, setToggle] = useState(true);// temporary alwayus open
-    const [openWallet, setOpenWallet] = useState(false); 
 
     const [accountType, setAccountType] = useState()
     const [amount, setAmount] = useState()
