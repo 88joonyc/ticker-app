@@ -43,11 +43,11 @@ function SignupPage() {
 
             </div>
             <div className=" relative">
-                <form className="ml-4 md:ml-20 h-[80vh] md:h-auto" onSubmit={handleSubmit}>
+                <form className="ml-4 md:ml-20 h-[85vh] md:h-auto" onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <div className="w-full pr-4 md:pr-20 mt-40">
+                    <div className="w-full pr-4 md:pr-20 mt-20 md:mt-40">
                         <div className="text-sm md:text-lg">
                             Enter your first and last name as they appear on your government ID.
                         </div>
@@ -94,7 +94,7 @@ function SignupPage() {
                         <div>Already started?</div>
                         <Link className="underline underline-offset-4 hover:text-gray-600" to='/login'>Log in to complete your application</Link>
                     </div>
-                <div className="absolute bottom-8 right-0 w-full border-t-2 border-black">
+                <div className="absolute bottom-0 md:bottom-8 right-0 w-full border-t-2 border-black">
                     <button className="py-4 bg-black text-white font-bold text-xs rounded-full px-16 float-right mr-10 mt-8 hover:bg-gray-600" type="submit">Continue</button>
 
                 </div>
