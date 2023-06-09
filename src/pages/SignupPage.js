@@ -43,19 +43,19 @@ function SignupPage() {
 
             </div>
             <div className=" relative">
-                <form className="ml-4 md:ml-20 h-[90vh] md:h-auto" onSubmit={handleSubmit}>
+                <form className="ml-4 md:ml-20 h-[80vh] md:h-auto" onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className="w-full pr-4 md:pr-20 mt-40">
-                        <div className="text-lg">
+                        <div className="text-sm md:text-lg">
                             Enter your first and last name as they appear on your government ID.
                         </div>
                         <div className="flex gap-x-4 mt-8">
                 
                             <input
                             placeholder="First name"
-                            className="border p-4 w-full text-lg mt-8 font-light" 
+                            className="border p-4 w-full text-sm md:text-lg mt-8 font-light" 
                             type="text"
                             value={fname}
                             onChange={(e) => setFname(e.target.value)}
@@ -64,7 +64,7 @@ function SignupPage() {
                     
                             <input
                             placeholder="Last name"
-                            className="border p-4 w-full text-lg mt-8 font-light" 
+                            className="border p-4 w-full text-sm md:text-lg mt-8 font-light" 
                             type="text"
                             value={lname}
                             onChange={(e) => setLname(e.target.value)}
@@ -74,7 +74,7 @@ function SignupPage() {
 
                         <input
                         placeholder="Email address"
-                        className="border p-4 w-full text-lg mt-8 font-light" 
+                        className="border p-4 w-full text-sm md:text-lg mt-8 font-light" 
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -83,7 +83,7 @@ function SignupPage() {
                 
                         <input
                         placeholder="Password (min. 10 characters)"
-                        className="border p-4 w-full text-lg mt-8 font-light" 
+                        className="border p-4 w-full text-sm md:text-lg mt-8 font-light" 
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
