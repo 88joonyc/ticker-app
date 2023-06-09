@@ -102,7 +102,7 @@ export default function Home () {
                         <div className={`text-xl ml-2 md:ml-0 ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
                             ${list[0] - avg > 0 ? (list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </div>
-                        <div className='hidden: md:block'>
+                        <div className='hidden md:block'>
                             <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
                                 <VictoryGroup  data={list}  y="close" x="none"  >
                                     <VictoryLine style={{ data: {stroke: `${list[0] > avg ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
