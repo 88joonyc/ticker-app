@@ -34,15 +34,15 @@ function LoginPage() {
 
   return (
     <>
-      <div className='grid grid-cols-[1fr,1fr]'>
-        <img className='object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
+      <div className='grid md:grid-cols-[1fr,1fr]'>
+        <img className='hidden md:block object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
         <div className=''>
           <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <h1 className='ml-8 md:ml-20 mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
-            <div className='w-[400px] text-xs'>
+            <h1 className='ml-8 md:ml-20 mt-20 pr-10 md:mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
+            <div className='w-[90%] md:w-[400px] text-xs'>
               <label className='flex flex-col mb-4 ml-8 md:ml-20'>
                   Email
                   <input
@@ -65,7 +65,7 @@ function LoginPage() {
               </label>
             </div>
             <button className='ml-8 md:ml-20 mt-10 rounded-full py-3 px-14 bg-midnightPurple font-bold text-white text-xs' type="submit">Log in</button>
-            <div class="relative py-4  md:w-[400px] ml-8 md:ml-20 mt-8">
+            <div class="relative py-4 w-[300px] md:w-[400px] ml-8 md:ml-20 mt-8">
             <div class="absolute inset-0 flex items-center">
                 <div class="w-full border-b border-gray-300"></div>
             </div>

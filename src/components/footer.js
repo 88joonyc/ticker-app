@@ -25,7 +25,7 @@ export const Footer = function () {
                       
                     </div>
                 </div>
-                <div className="h-full text-md border border-black p-8">
+                <div className="h-full text-sm md:text-md border border-black p-8">
                     <div>
                     <p>All investing involves risk.
                             <br/><br/>
