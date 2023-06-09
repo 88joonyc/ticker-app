@@ -34,7 +34,7 @@ export default function SidePanel ({data, list}) {
                                     </div>
                                     <div className='flex flex-col justify-center gap-2 items-center'>
                                         <div>{data?.[stock?.ticker]?.[0]?.close.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-                                        <div className={data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice > 0 ? 'text-green-500' : 'text-red-500'}>{(data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice)>0&&'+'}{(((data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice)*stock?.qty)/(stock?.originalPrice)*stock?.qty).toFixed(2)}%</div>
+                                        <div className={data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice > 0 ? 'text-green-500' : 'text-red-500'}>{(data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice)>0&&'+'}{(((data?.[stock?.ticker]?.[0]?.close - stock?.originalPrice))/(stock?.originalPrice)*100).toFixed(2)}%</div>
                                     </div>
                                 </div>
                             </Link>
