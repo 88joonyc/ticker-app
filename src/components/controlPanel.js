@@ -1,8 +1,9 @@
-import react, { useState } from 'react';
+import react, { useState, useEffect } from 'react';
 import { purchase } from '../store/stock';
 import { useDispatch, useSelector } from 'react-redux';
 import { directUpdate } from '../store/wallet';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 export default function ControlPanel ({ticker, data}) {
     const dispatch = useDispatch();
@@ -14,18 +15,40 @@ export default function ControlPanel ({ticker, data}) {
     const [control, setControl] = useState('buy')
     const [type, setType] = useState('shares')
     const [qty, setQty] = useState('')
-    const [account, setAccount] = useState('')
+    const [account, setAccount] = useState('dollars')
+
+    const [ showMenu, setShowMenu ] = useState(false);
+    const toggleMenu = (e) => {
+        e.stopPropagation()
+        setShowMenu(!showMenu);
+    };
+
+    useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          setShowMenu(false);
+        };
+    
+        document.addEventListener('click', closeMenu);
+      
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+
 
     const submitPurchase = async function (e) {
         e.preventDefault()
-        console.log( data?.results[data?.results?.length-1]?.c * qty )
+        console.log(data?.results[data?.results?.length-1]?.c * qty )
+
 
         const isuserbroke = await dispatch(directUpdate({
             userId,
             accountType: account,
             amount: data?.results[data?.results?.length-1]?.c * qty 
-        })
+            })
         )
+
+        console.log('checking', isuserbroke)
 
         if (!isuserbroke.wallet.message){
             if (window.confirm(`Are you sure you want to spend ${data?.results[data?.results?.length-1]?.c * qty}?`)) {
@@ -35,45 +58,79 @@ export default function ControlPanel ({ticker, data}) {
                     qty,
                     userId,
                 }))
+        
                 if (response.response.response) {
                     alert("Purchase complete!")
                     naviagte("/")
-                }
+                } 
             }
         } else {
             alert(isuserbroke.wallet.message)
         }
-
     }
+
+    const getPower = function() {
+        if (wallet.wallet) {
+            let type = wallet.wallet.filter(power => power.accountType == account)
+            return type[0].buyingPower
+        }
+    }
+
+
 
     return (
         <>
-            <div className='max-w-[400px] relative '>
-                <div className='flex flex-col border border-gray-200  p-8 sticky top-[120px] shadow-lg'>
-                    <div className='text-xl mb-8 font-bold capitalize text-midnightPurple '>{control + ' ' + ticker}</div>
-                    <form onSubmit={submitPurchase} className='flex flex-col'>
+            <div className='md:max-w-[400px] relative'>
+                <div className='flex flex-col border border-gray-200 pt-6  sticky top-[120px] shadow-lg'>
+                    <div className='text-xl mb-8 font-bold capitalize text-midnightPurple px-6'>{control + ' ' + ticker}</div>
+                    <form onSubmit={submitPurchase} className='flex flex-col px-6'>
                         <label className='text-base flex justify-between'> Buy in
-                            <select className='border bg-white p-2 w-[120px] ' onChange={e => setType(e.target.value)}>
+                            <select className='border bg-white p-2 w-[150px] ' onChange={e => setType(e.target.value)}>
                                 <option value='shares'>Shares</option>
                                 {/* <option value='dollars'>Dollars</option> */}
                             </select>
                         </label>
-                        <label className='text-base py-8 flex justify-between items-center'> <span className='capitalize'>{type}</span>
-                            <input className='py-2 px-4  border w-[120px]' type="number" min={0} onChange={e => setQty(e.target.value)} />
+                        <div></div>
+                        <label className='text-base py-2 flex justify-between items-center'> <span className='capitalize'>{type}</span>
+                            <input className='py-2 px-4  border w-[150px] text-right' placeholder='0' type="number" min={0} onChange={e => setQty(e.target.value)} />
                         </label>
-                        <label className='text-base flex justify-between'> Pay by
-                            <select className='border bg-white p-2 w-[120px] ' onChange={e => setAccount(e.target.value)}>
-                            <option className='' value={``}>-- Choose an account type --</option>
-                                {wallet.wallet.map(money => (
-                                    <>
-                                        <option value={`${money.accountType}`}>{money.accountType}</option>
-                                    </>
-                                ))}
-                                {/* <option value='dollars'>Dollars</option> */}
-                            </select>
-                        </label>
-                        <button className='p-4 border rounded-full  my-8 text-xl text-white font-bold bg-midnightPurple hover:bg-purple-950'>review order</button>
+                        <div className='flex pt-4 justify-between font-bold'>
+                            <div className='text-highlightPurple'>
+                                Market Price
+                            </div>
+                            <div>
+                                ${data?.results[data?.results?.length-1]?.c}
+                            </div>
+                        </div>
+                        <div className='flex pt-4 justify-between font-bold border-t mt-4'>
+                            <div>
+                                Estimated Cost
+                            </div>
+                            <div>
+                                ${qty ? (qty*data?.results[data?.results?.length-1]?.c).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
+                            </div>
+                        </div>
+                        <button className='p-4 border rounded-full my-2 mt-10 text-sm text-white font-bold bg-midnightPurple hover:bg-purple-950'>review order</button>
                     </form>
+                    <div className='w-full flex justify-center p-4 border-t mt-6'>
+                        ${!getPower() ? 0 : getPower().toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available
+                    </div>
+                    <button className='hover:bg-fadedPurple w-full flex justify-center py-4 border-t' onClick={toggleMenu}>
+                        <label className='text-base flex justify-between'> {account == 'dollars' ? 'Brokerage' : 'Bitcoin' }
+                        </label>
+                    </button>
+                    {showMenu&&<div>
+                    <select className='border bg-white p-2 w-full ' onChange={e => setAccount(e.target.value)} required>
+
+                                <option value={``}>select</option>
+                                    {wallet.wallet.map(money => (
+                                        <option 
+                                            key={`wallet-with-${money.id}`} 
+                                            value={`${money.accountType}`}>{money.accountType}
+                                        </option>
+                                    ))}
+                                </select>
+                    </div>}
                 </div>
             </div>
         </>
