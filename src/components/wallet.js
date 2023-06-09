@@ -69,12 +69,12 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                             <div className={`grid md:grid-cols-[1fr,1fr] mx-2 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
                                 <div class="">
                                     {wallet && wallet?.map(funds => (
-                                        <>
+                                        <div key={`userwallet-${funds.id}`}>
                                             <div className="border-b text-blac font-light flex justify-between mb-8">
                                                 <div className="">{funds.accountType} </div>
                                                 <div>${funds.buyingPower?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
                                             </div>
-                                        </>
+                                        </div>
                                     ))}
                                     <button onClick={() => (setOpenWallet(!openWallet)) } className="px-16 py-3 text-xs md:text-sm font-bold text-white bg-midnightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
                                 </div>
