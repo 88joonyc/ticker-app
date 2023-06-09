@@ -54,11 +54,11 @@ export default function Wallet ({openWallet, setOpenWallet}) {
 
     return (
         <>
-            <div className={`transition-[height]  linear duration-[.2s] ${toggle ? "h-[330px]" : " h-[130px]"} relative`}>
+            <div className={`transition-[height]  linear duration-[.2s] ${toggle ? "h-[305px] md:h-[305px]" : " h-[130px]"} relative`}>
                 <div className="relative ">
-                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? 'md:rounded-t-xl border' : 'text-black bg-white'} hover:bg-   hover:cursor- flex flex-col justify-center border-b`}>
-                        <div className='flex mx-6 flex-col justify-between relative '>
-                            <div className="flex justify-between">
+                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t-xl border' : 'text-black bg-white'} hover:cursor-pointer flex flex-col justify-center border-b`}>
+                        <div className='flex mx-2 md:mx-6 flex-col justify-between relative '>
+                            <div className="flex justify-between text-sm md:text-lg">
 
                                 <span className='font-bold'>{ wallet ? 'Buying Power' : 'Add Wallet'}</span>
                                 {wallet.length > 1&&<span className='font-medium'>${wallet?.reduce((acc , curr) => acc.buyingPower + curr.buyingPower)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>}
@@ -66,8 +66,8 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                         </div>
                     </div>
                     <>
-                        <div className={`w-full mx-auto border absolute top-[80px] border-t hover:text-black transition-[height] md:rounded-b-xl linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[250px] ' : '  h-0 ' }`}>
-                            <div className={`grid md:grid-cols-[1fr,1fr] mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
+                        <div className={`w-full mx-auto border absolute top-[80px] border-t text-sm md:text-base hover:text-black transition-[height] md:rounded-b-xl linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[225px] md:h-[250px]' : '  h-0 ' }`}>
+                            <div className={`grid md:grid-cols-[1fr,1fr] mx-2 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
                                 <div class="">
                                     {wallet && wallet?.map(funds => (
                                         <>
@@ -77,7 +77,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                                             </div>
                                         </>
                                     ))}
-                                    <button onClick={() => setOpenWallet(!openWallet)} className="px-16 py-3 text-sm font-bold text-white bg-midnightPurple w-full rounded-full mt-6">Deposit Funds</button>
+                                    <button onClick={() => (setOpenWallet(!openWallet)) } className="px-16 py-3 text-xs md:text-sm font-bold text-white bg-midnightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
                                 </div>
                                 <div className="font-light text-black mx-8 hidden md:block">
                                 Buying power represents the total value of assets you can purchase.

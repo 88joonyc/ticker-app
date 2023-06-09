@@ -96,10 +96,10 @@ export default function Home () {
                 <div className='max-w-[1440px] mx-auto'> 
                     <div className='grid md:grid-cols-[78%,22%] px-6'>
                         <div className='md:mr-8'> {/* // may change */}
-                        <h1 className={`text-4xl `}>
+                        <h1 className={`text-2xl md:text-4xl ml-2 md:ml-0`}>
                             ${list[0] > 0 ? (list[0] )?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </h1>
-                        <div className={`text-xl ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
+                        <div className={`text-xl ml-2 md:ml-0 ${list[0] > avg ? 'text-green-500' : 'text-red-500'}`}>
                             ${list[0] - avg > 0 ? (list[0] - avg)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                         </div>
                         <div>
