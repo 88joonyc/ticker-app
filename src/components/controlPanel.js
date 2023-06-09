@@ -36,22 +36,20 @@ export default function ControlPanel ({ticker, data}) {
       }, [showMenu]);
 
 
-    const submitPurchase = async function (e) {
+      const submitPurchase = async function (e) {
         e.preventDefault()
-        console.log(data?.results[data?.results?.length-1]?.c * qty )
 
+        if (window.confirm(`Are you sure you want to spend ${data?.results[data?.results?.length-1]?.c * qty}?`)) {
+            const isuserbroke = await dispatch(directUpdate({
+                userId,
+                accountType: account,
+                amount: data?.results[data?.results?.length-1]?.c * qty 
+                })
+            )
 
-        const isuserbroke = await dispatch(directUpdate({
-            userId,
-            accountType: account,
-            amount: data?.results[data?.results?.length-1]?.c * qty 
-            })
-        )
-
-        console.log('checking', isuserbroke)
-
-        if (!isuserbroke.wallet.message){
-            if (window.confirm(`Are you sure you want to spend ${data?.results[data?.results?.length-1]?.c * qty}?`)) {
+            console.log('checking', isuserbroke)
+        
+            if (!isuserbroke.wallet.message){
                 const response = await dispatch(purchase({
                     ticker,
                     originalPrice: data.results[data?.results?.length-1].c,
@@ -63,9 +61,10 @@ export default function ControlPanel ({ticker, data}) {
                     alert("Purchase complete!")
                     naviagte("/")
                 } 
+
+            } else {
+                alert(isuserbroke.wallet.message)
             }
-        } else {
-            alert(isuserbroke.wallet.message)
         }
     }
 
