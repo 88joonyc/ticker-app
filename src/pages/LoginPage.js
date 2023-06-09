@@ -34,16 +34,16 @@ function LoginPage() {
 
   return (
     <>
-        <div className='grid grid-cols-[1fr,1fr]'>
-        <img className='hidden md:block object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
+      <div className='grid grid-cols-[1fr,1fr]'>
+        <img className='object-cover w-[100vw] h-[100vh]' src='https://r4.wallpaperflare.com/wallpaper/878/875/601/batman-background-wallpaper-c900c81db10acdfb16c7883f406186dd.jpg'/>
         <div className=''>
           <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <h1 className='ml-20 mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
+            <h1 className='ml-8 md:ml-20 mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
             <div className='w-[400px] text-xs'>
-              <label className='flex flex-col mb-4 ml-20'>
+              <label className='flex flex-col mb-4 ml-8 md:ml-20'>
                   Email
                   <input
                       className='border p-2 rounded mt-4'
@@ -53,7 +53,7 @@ function LoginPage() {
                       required
                   />
               </label>
-              <label className='flex flex-col mb-4 ml-20'>
+              <label className='flex flex-col mb-4 ml-8 md:ml-20'>
                   Password
                   <input
                       className='border p-2 rounded mt-4'
@@ -64,8 +64,8 @@ function LoginPage() {
                   />
               </label>
             </div>
-            <button className='ml-20 mt-10 rounded-full py-3 px-14 bg-midnightPurple font-bold text-white text-xs' type="submit">Log in</button>
-            <div class="relative py-4 w-[400px] ml-20 mt-8">
+            <button className='ml-8 md:ml-20 mt-10 rounded-full py-3 px-14 bg-midnightPurple font-bold text-white text-xs' type="submit">Log in</button>
+            <div class="relative py-4  md:w-[400px] ml-8 md:ml-20 mt-8">
             <div class="absolute inset-0 flex items-center">
                 <div class="w-full border-b border-gray-300"></div>
             </div>
@@ -73,8 +73,8 @@ function LoginPage() {
                 <span class="bg-white px-4 text-sm text-gray-500">or</span>
             </div>
             </div>
-            <button onClick={handleDemo} className='ml-20 mt-8 rounded-full py-3 px-14 bg-midnightPurple font-bold text-white text-xs' type="submit">Log in with demo</button>
-            <div className='ml-20 mt-10 text-xs '>
+            <button onClick={handleDemo} className='ml-8 md:ml-20 mt-8 rounded-full py-3 px-14 bg-midnightPurple font-bold text-white text-xs' type="submit">Log in with demo</button>
+            <div className='ml-8 md:ml-20 mt-10 text-xs '>
                 Not in Batman's Hood? <Link to='/signup' className='text-midnightPurple underline font-bold underline-offset-4 hover:text-purple-800 '>Create an account</Link>
             </div>
           </form>
