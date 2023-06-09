@@ -99,7 +99,7 @@ export default function ControlPanel ({ticker, data}) {
                                 Market Price
                             </div>
                             <div>
-                                ${data?.results[data?.results?.length-1]?.c}
+                                ${data?.results?.[data?.results?.length-1]?.c ? data?.results[data?.results?.length-1]?.c : 0}
                             </div>
                         </div>
                         <div className='flex pt-4 justify-between font-bold border-t mt-4'>
