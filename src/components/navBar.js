@@ -1,30 +1,32 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useDebounce } from "use-debounce";
-import { csrfFetch } from "../store/csrf";
+
+import { FaSearch } from "react-icons/fa";
+
+import SearchBar from "./searchBar";
 
 import logo from './batmanlogo.png'
 import * as sessionActions from '../store/session'
 
 export default function NavBar() {
     const dispatch = useDispatch();
-
-    const [ keyword, setKeyword ] = useState();
-    const [ searchQuery ] = useDebounce(keyword, 500);
-    const [ bestMatches, setBestMatches ] = useState([])
     const [ showMenu, setShowMenu ] = useState(false);
 
+    const [ showMobileSearch, toggleMobileSearch ] = useState(false)
+
     const session = useSelector(state => state.session.user)
+
+  
     const toggleMenu = (e) => {
-      e.stopPropagation()
-      setShowMenu(!showMenu);
+        e.stopPropagation()
+        setShowMenu(!showMenu);
     };
     
     useEffect(() => {
       if (!showMenu) return;
   
-      const closeMenu = () => {
+      const closeMenu = (e) => {
         setShowMenu(false);
       };
   
@@ -33,56 +35,23 @@ export default function NavBar() {
       return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    useEffect(() => {
-        const delayDebounceSearch = setTimeout(async () => {
-            if (searchQuery) {
-                try {
-                    const response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/by/${searchQuery}`, {
-            
-                    } )
-                    let data 
-                    if (response.ok) {
-                        data = await response.json()
-                        console.log('this ranm')
-                        setBestMatches([...data.bestMatches])
-                    }
-                } catch (err) {
-                    console.log(err)
-                }
-            }
-            return () => clearTimeout(delayDebounceSearch)
-        }, 500)
-    }, [searchQuery])
-
+    const toggleSearch = e => {
+        e.stopPropagation()
+        toggleMobileSearch(!showMobileSearch)
+    }
 
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
-      };
+    };
 
-      return (
+    return (
         <div className={`mx-auto sticky z-40 bg-white top-0 left-0  ${!session?.id && 'border'}`}>
             <div className=" flex mx-auto items-center px-4 justify-between">
-                <Link to='/' className="">
+                <Link to='/' className="hidden md:block">
                     <img className="w-[120px] h-[20px] object-contain" src={logo} />
                 </Link>
-
-                <div className="mx-auto p-2 relative flex justify-center">
-                    <input className={`px-2 py-2 text-sm lg:w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
-                    {searchQuery&&<div className="absolute top-[53px] md:right-[8px]">
-                        <div className="w-[80vw] md:w-[500px] opacity-85 bg-white">
-                            {bestMatches.map((matches, idx) => (
-                                <Link to={`/ticker/${matches['1. symbol']}`} key={`${matches['1. symbol']} -- ${idx}`} onClick={() => setKeyword('')}>
-                                    <div className="border p-3  text-xs flex justify-between hover:text-white hover:bg-midnightPurple">
-                                        <div >{matches['1. symbol']}</div>
-                                        <div >{matches['2. name']}</div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>}
-                </div>
-
+                <SearchBar showMenu={showMenu}/>
                 <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
                         <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer">Log In</Link>
@@ -104,6 +73,9 @@ export default function NavBar() {
                         </div>
                     </div>}
                 </div>
+                <button className="md:hidden h-14" onClick={toggleSearch}>
+                    <FaSearch style={{ fontSize: '25px'}}/>
+                </button>
             </div>
         </div>
     )
