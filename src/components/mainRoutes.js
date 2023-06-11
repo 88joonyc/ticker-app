@@ -6,6 +6,8 @@ import NavBar from './navBar';
 import { useSelector } from "react-redux";
 import Home from "../pages/Home";
 
+import NavBarMobile from "./navBar-mobile";
+
 
 export default function MainRoutes ({isLoaded}) {
 
@@ -18,6 +20,7 @@ export default function MainRoutes ({isLoaded}) {
             <Route  path='/' element={<> <Home isLoaded={isLoaded} /></>} />
             {/* <Route  path='/ticker/:ticker' element={<Ticker /> } /> */}
         </Routes>
+        <NavBarMobile/>
         </>
 
     )
