@@ -88,7 +88,7 @@ export default function NavBar() {
                         <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer">Log In</Link>
                         <Link to='/signup' className="hover:text-highlightPurple hover:cursor-pointer">Sign Up</Link>
                     </>}
-                    {session&&<>
+                    {session&&<div className="hidden md:block">
                         <div className="hover:text-highlightPurple hover:cursor-pointer" onClick={toggleMenu}>Account</div>
                         <div className="relative ">
                         {showMenu && (
@@ -102,7 +102,7 @@ export default function NavBar() {
                                 </ul>
                             )}
                         </div>
-                    </>}
+                    </div>}
                 </div>
             </div>
         </div>
