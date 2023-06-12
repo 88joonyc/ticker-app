@@ -30,7 +30,7 @@ export default function SearchBar ({showMenu}) {
 
     return (
         <>
-            {showMenu&&<div className="mx-auto p-2 relative md:flex justify-center">
+            {!showMenu&&<div className="hidden mx-auto p-2 relative md:flex justify-center">
                 <input className={`px-2 py-2 text-sm lg:w-[500px] ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
                 {searchQuery&&<div className="absolute top-[53px] md:right-[8px]">
                     <div className="w-[80vw] md:w-[500px] opacity-85 bg-white">
