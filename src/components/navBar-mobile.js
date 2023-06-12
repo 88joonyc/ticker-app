@@ -6,9 +6,9 @@ export default function NavBarMobile () {
         <>
             <div className=' md:hidden sticky bottom-0 py-10 bg-white'>
                 <div className='flex justify-around'>
-                    <FaPowerOff />
-                    <FaLaptop />
-                    <FaAddressCard />
+                    <FaPowerOff style={{ fontSize: '25px' }} />
+                    <FaLaptop style={{ fontSize: '25px' }} />
+                    <FaAddressCard style={{ fontSize: '25px' }} />
                 </div>
             </div>
         </>
