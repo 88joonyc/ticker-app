@@ -144,7 +144,7 @@ export default function Home ({isLoaded}) {
                                                 />
                                             }
                                         >
-                                    <VictoryGroup  data={stocksData ? list : unused}  y="close" x="none"  >
+                                    <VictoryGroup  data={stocks ? list : unused}  y="close" x="none"  >
                                         <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 2 }}}  />
                                         <VictoryAxis  offsetY={200} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
                                     </VictoryGroup>
