@@ -1,7 +1,7 @@
 import react from 'react';
 import { FaCircle, FaPowerOff, FaAddressCard, FaLaptop, FaMoneyBill } from "react-icons/fa";
 
-export default function NavBarMobile () {
+export default function NavBarMobile ({}) {
     const href = window.location.href
     
     return (
@@ -13,10 +13,10 @@ export default function NavBarMobile () {
                     </Link>
                     <FaAddressCard style={{ fontSize: '25px', color: '#9f93a6' }} />
                     {/* <button onClick={() => setOpenWallet(true)}> */}
-                        <FaMoneyBill style={{ fontSize: '25px', color: `${!openWallet ? '#9f93a6' : '#000000'}` }} />
+                        <FaMoneyBill style={{ fontSize: '25px', color: `${ true ? '#9f93a6' : '#000000'}` }} />
                     {/* </button> */}
                     {/* <button onClick={() => setShowMenu(true)}> */}
-                        <FaPowerOff style={{ fontSize: '25px', color: `${!showMenu ? '#9f93a6' : '#000000'}` }} />
+                        <FaPowerOff style={{ fontSize: '25px', color: `${ true ? '#9f93a6' : '#000000'}` }} />
                     {/* </button> */}
                 </div>
             </div>
