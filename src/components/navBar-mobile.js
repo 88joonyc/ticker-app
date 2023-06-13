@@ -1,11 +1,13 @@
 import react from 'react';
-import { FaCircle, FaPowerOff, FaAddressCard, FaLaptop, FaMoneyBill } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { FaCircle, FaPowerOff, FaAddressCard, FaLaptop, FaMoneyBill } from "react-icons/fa";
 
 import * as sessionActions from '../store/session'
 
 export default function NavBarMobile ({}) {
     const href = window.location.href
+    const dispatch = useDispatch();
 
     const logout = (e) => {
         e.preventDefault();
