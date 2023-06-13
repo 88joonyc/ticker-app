@@ -46,7 +46,7 @@ function App() {
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />  
         {/* <Route  path='/' element={<> <Home /></>} /> */}
-        <Route  path='/ticker/:ticker' element={ <><NavBar showMenu={showMenu} setShowMenu={setShowMenu} /> <Ticker /> <NavBarMobile /> </> } />
+        <Route  path='/ticker/:ticker' element={ <><NavBar /> <Ticker /> <NavBarMobile /> </> } />
       </Routes>
     </BrowserRouter>
 

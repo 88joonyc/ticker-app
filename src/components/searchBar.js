@@ -3,7 +3,7 @@ import react, { useState, useEffect } from 'react';
 import { useDebounce } from "use-debounce";
 import { Link } from "react-router-dom";
 
-export default function SearchBar ({showMenu}) {
+export default function SearchBar ({}) {
 
     const [ keyword, setKeyword ] = useState();
     const [ bestMatches, setBestMatches ] = useState([])
