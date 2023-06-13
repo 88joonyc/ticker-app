@@ -111,16 +111,19 @@ export default function Home ({isLoaded}) {
                 <div className='max-w-[1440px] mx-auto'> 
                     <div className='grid md:grid-cols-[75%,25%] md:px-6'>
                         <div className='md:mr-8'> {/* // may change */}
-                        <h1 className={`mt-8 text-2xl md:text-4xl ml-2 md:ml-0`}>
+                        <h1 className={`mt-0 md:mt-8 text-4xl md:text-4xl ml-2 md:ml-0`}>
+                        <div className='md:hidden'>
+                            Investing
+                        </div>
                             ${(total)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
-                        <div className={`text-xl ml-2 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
+                        <div className={` md:text-xl ml-2 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
                             {current > 0 && '+'}${(current).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         {!openWallet&&<>
                             <div className='hidden md:block'>
                                 <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
-                                    <VictoryGroup  data={stocks ? list : unused}  y="close" x="none"  >
+                                    <VictoryGroup  data={stocksData ? list : unused}  y="close" x="none"  >
                                         <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
                                         <VictoryAxis  offsetY={100} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
                                         {/* <VictoryScatter /> */}
@@ -129,7 +132,7 @@ export default function Home ({isLoaded}) {
                             </div>
                             <div className='md:hidden'>
                                 <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
-                                    <VictoryGroup  data={stocks ? list : unused}  y="close" x="none"  >
+                                    <VictoryGroup  data={stocksData ? list : unused}  y="close" x="none"  >
                                         <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
                                         <VictoryAxis  offsetY={200} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
                                     </VictoryGroup>
