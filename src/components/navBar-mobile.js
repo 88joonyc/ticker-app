@@ -1,5 +1,6 @@
 import react from 'react';
 import { FaCircle, FaPowerOff, FaAddressCard, FaLaptop, FaMoneyBill } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export default function NavBarMobile ({}) {
     const href = window.location.href
