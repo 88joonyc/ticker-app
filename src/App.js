@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import MainRoutes from './components/mainRoutes';
 import { stocks } from './store/stock';
+import NavBarMobile from './components/navBar-mobile';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function App() {
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />  
         {/* <Route  path='/' element={<> <Home /></>} /> */}
-        <Route  path='/ticker/:ticker' element={ <><NavBar /> <Ticker /> </> } />
+        <Route  path='/ticker/:ticker' element={ <><NavBar showMenu={showMenu} setShowMenu={setShowMenu} /> <Ticker /> <NavBarMobile /> </> } />
       </Routes>
     </BrowserRouter>
 
