@@ -124,7 +124,7 @@ export default function Home ({isLoaded}) {
                             <div className='hidden md:block'>
                                 <VictoryChart height={200} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
                                     <VictoryGroup  data={stocks ? list : unused}  y="close" x="none"  >
-                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 2 }}}  />
+                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
                                         <VictoryAxis  offsetY={100} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
                                         {/* <VictoryScatter /> */}
                                     </VictoryGroup>
@@ -133,7 +133,7 @@ export default function Home ({isLoaded}) {
                             <div className='md:hidden'>
                                 <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }} >
                                     <VictoryGroup  data={stocks ? list : unused}  y="close" x="none"  >
-                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 1 }}}  />
+                                        <VictoryLine style={{ data: {stroke: `${current > 0 ? "#22c55e" : "#ef4444"}  `, strokeWidth: 2 }}}  />
                                         <VictoryAxis  offsetY={200} tickFormat={() => ''} style={{ axis: {stroke: '#ffffff', strokeWidth: 1 }}}  />
                                     </VictoryGroup>
                                 </VictoryChart>
