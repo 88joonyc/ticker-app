@@ -54,7 +54,7 @@ export default function NavBar() {
                 <SearchBar showMenu={showMenu}/>
                 <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
-                        <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer">Log In</Link>
+                        <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer mr-10 md:mr-0">Log In</Link>
                         <Link to='/signup' className="hover:text-highlightPurple hover:cursor-pointer">Sign Up</Link>
                     </>}
                     {session&&<div className="hidden md:block">
