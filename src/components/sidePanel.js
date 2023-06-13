@@ -1,6 +1,6 @@
 
 import { useSelector } from 'react-redux';
-import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup } from 'victory';
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup, VictoryContainer } from 'victory';
 import { Link } from 'react-router-dom';
 
 export default function SidePanel ({data, list}) {
