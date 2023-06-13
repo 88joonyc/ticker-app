@@ -47,7 +47,7 @@ function SignupPage() {
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <div className="w-full pr-4 md:pr-20 mt-20 md:mt-40">
+                    <div className="w-full pr-4 md:pr-20 mt-10 md:mt-40">
                         <div className="text-sm md:text-lg">
                             Enter your first and last name as they appear on your government ID.
                         </div>
