@@ -10,14 +10,14 @@ export default function SidePanel ({data, list}) {
     return (
         <>
             <div className='border md:h-[90vh] md:mb-0 overflow-y-scroll no-scrollbar text-xs md:sticky top-[60px]' >
-                <div className='w-full border-b px-2 py-4 '>
+                <div className='w-full border-b px-5 md:px-2 py-4 '>
                     <div className='w-full '>Stocks</div>
                 </div>
                 <div>
                     {stocks&&data&&stocks?.map(stock => (
                         <div key={`stock-identifier-${stock.id}`}>
                             <Link to={`/ticker/${stock?.ticker}`} >
-                                <div className={`px-2 py-1 flex justify-between hover:bg-gray-100 text-black`}>
+                                <div className={`px-5 md:px-2 py-1 flex justify-between hover:bg-gray-100 text-black`}>
                                     <div className='flex flex-col justify-center'>
                                         <span className='font-bold'>{stock?.ticker}</span>
                                         <span className='font-light'>{stock?.qty} {stock?.qty > 1 ? 'shares' : 'share'}</span>
