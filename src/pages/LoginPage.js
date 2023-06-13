@@ -41,7 +41,7 @@ function LoginPage() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <h1 className='ml-8 md:ml-20 mt-20 pr-10 md:mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
+            <h1 className='ml-8 md:ml-20 mt-10 pr-10 md:mt-[200px] text-2xl mb-10'>Log in to Batman's Hood</h1>
             <div className='w-[90%] md:w-[400px] text-xs'>
               <label className='flex flex-col mb-4 ml-8 md:ml-20'>
                   Email
