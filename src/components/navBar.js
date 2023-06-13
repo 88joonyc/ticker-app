@@ -73,7 +73,7 @@ export default function NavBar() {
                         </div>
                     </div>}
                 </div>
-                <button className="md:hidden h-14" onClick={toggleSearch}>
+                <button className="md:hidden h-16" onClick={toggleSearch}>
                     <FaSearch style={{ fontSize: '25px'}}/>
                 </button>
             </div>
