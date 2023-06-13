@@ -66,7 +66,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                     </div>
                     <>
                         <div className={`w-full mx-auto border absolute top-[80px] border-t text-sm md:text-base hover:text-black transition-[height] md:rounded-b linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[185px] md:h-[250px]' : '  h-0 ' }`}>
-                            <div className={`grid md:grid-cols-[1fr,1fr] mx-2 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
+                            <div className={`grid md:grid-cols-[1fr,1fr] mx-6 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
                                 <div>
                                     {wallet && wallet?.map(funds => (
                                         <div key={`userwallet-${funds.id}`}>
