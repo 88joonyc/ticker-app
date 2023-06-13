@@ -2,8 +2,15 @@ import react from 'react';
 import { FaCircle, FaPowerOff, FaAddressCard, FaLaptop, FaMoneyBill } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
+import * as sessionActions from '../store/session'
+
 export default function NavBarMobile ({}) {
     const href = window.location.href
+
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+    };
     
     return (
         <>
@@ -16,9 +23,9 @@ export default function NavBarMobile ({}) {
                     {/* <button onClick={() => setOpenWallet(true)}> */}
                         <FaMoneyBill style={{ fontSize: '25px', color: `${ true ? '#9f93a6' : '#000000'}` }} />
                     {/* </button> */}
-                    {/* <button onClick={() => setShowMenu(true)}> */}
+                    <button onClick={logout}>
                         <FaPowerOff style={{ fontSize: '25px', color: `${ true ? '#9f93a6' : '#000000'}` }} />
-                    {/* </button> */}
+                    </button>
                 </div>
             </div>
         </>
