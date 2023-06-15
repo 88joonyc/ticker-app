@@ -9,16 +9,15 @@ const setMultiple = (multiple) => {
     }
 };
 
-export const fetchMultipleTickers = ({stocksData, dayBefore, dayCounter}) => async (dispatch) => {
+export const fetchMultipleTickers = ({stocks, dayBefore, dayCounter}) => async (dispatch) => {
     let response
     try{
         response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/multiple`, {
             method: 'POST',
-            'Content-type': 'application/JSON',
             body: JSON.stringify({
-                symbols: stocksData?.map(stock => stock?.ticker),
+                symbols: stocks?.map(stock => stock?.ticker),
                 to: dayBefore,
-                from: dayCounter,
+                from: dayCounter(350),
             })
         })
     } catch(err) {
