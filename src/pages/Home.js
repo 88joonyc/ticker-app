@@ -3,7 +3,7 @@ import react, { useState, useEffect } from 'react';
 import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup, VictoryContainer } from 'victory';
 import Wallet from '../components/wallet';
 import SidePanel from '../components/sidePanel';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchMultipleTickers } from '../store/multiple';
 
 import { SplashPage } from './SplashPage';
