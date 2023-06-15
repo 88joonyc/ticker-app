@@ -12,7 +12,7 @@ const setMultiple = (multiple) => {
 export const fetchMultipleTickers = ({stocksData, dayBefore, dayCounter}) => async (dispatch) => {
     let response
     try{
-        response = await csrfFetch('/api/ticker/search/multiple', {
+        response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/multiple`, {
             method: 'POST',
             'Content-type': 'application/JSON',
             body: JSON.stringify({
