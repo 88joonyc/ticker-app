@@ -38,16 +38,16 @@ export default function Home ({isLoaded}) {
         .then((data) => complete(data))
         .then(entries => currentPrice(entries, orig))
         .catch(err => console.log(err))
-    }, [stocks, data])
+    }, [stocks])
 
     async function run() {
         if (stocks.length > 0 && once) {
-            const dataset = await dispatch(fetchMultipleTickers({stocks, dayBefore, dayCounter:dayCounter(100)}))
+            const dataset = await dispatch(fetchMultipleTickers({stocks, dayBefore, dayCounter:dayCounter(350)}))
             return dataset
         }
     }
 
-    const complete = function (entries, type) {
+    var complete = function (entries, type) {
         let list = []
         for (const [idx, [key, val]] of Object?.entries(Object?.entries(entries.pass))) {
             
@@ -65,7 +65,7 @@ export default function Home ({isLoaded}) {
         return entries
     }
     
-    const original = function (pass) {
+    var original = function (pass) {
         let obj = {}
         let sum = 0
         stocks.forEach(tick => {
@@ -77,7 +77,7 @@ export default function Home ({isLoaded}) {
         return {pass, obj}
     };
 
-    const currentPrice = function ({pass, obj}) {
+    var currentPrice = function ({pass, obj}) {
         let current = 0
         let total = 0
         for (const [key, val] of Object.entries(pass)) {
