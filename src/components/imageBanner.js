@@ -14,7 +14,7 @@ export const ImageBanner = function ({data}) {
                         <img className='h-[300px] md:h-full mx-auto object-cover' src={`${info.image}`}/>
                     </div>
                     <div className="flex flex-col md:h-[45rem] md:w-[360px] md:ml-8">
-                        <div className="my-auto">
+                        <div className="my-auto px-2">
                             <h2 className="text-4xl md:text-6xl mt-8 md:mt-0 font-light mb-10">{info.title}</h2>
                             <div className="text-xl pb-8">{info.subtitle}</div>
                             <div className="text-lg font-light pb-10">{info.aux}</div>
