@@ -9,7 +9,7 @@ import { fetchMultipleTickers } from '../store/multiple';
 import { SplashPage } from './SplashPage';
 
 export default function Home ({isLoaded}) {
-
+    const dispatch = useDispatch();
     const session = useSelector(state => state?.session?.user)
 
     const [openWallet, setOpenWallet] = useState(false); 
