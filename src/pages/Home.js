@@ -1,20 +1,17 @@
 import react, { useState, useEffect } from 'react';
 
 import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup, VictoryContainer } from 'victory';
-import ControlPanel from '../components/controlPanel';
 import Wallet from '../components/wallet';
-import Ticker from './Ticker';
 import SidePanel from '../components/sidePanel';
 import { useSelector } from 'react-redux';
-import { csrfFetch } from '../store/csrf';
-import { SplashPage } from './SplashPage';
+import { fetchMultipleTickers } from '../store/multiple';
 
+import { SplashPage } from './SplashPage';
 
 export default function Home ({isLoaded}) {
 
     const session = useSelector(state => state?.session?.user)
 
-    const [data, setData] = useState({})
     const [openWallet, setOpenWallet] = useState(false); 
 
     const [list, setList] = useState([]);
@@ -25,6 +22,8 @@ export default function Home ({isLoaded}) {
     const [total, setTotal] = useState(0)
 
     const stocks = useSelector(state => state?.stock?.stock)
+    const data = useSelector(state => state?.multiple?.multiple)
+
     const today = new Date();
     var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
     var dayBefore =  new Date(today.setDate(today.getDate()-2)).toISOString().split('T')[0]
@@ -34,53 +33,37 @@ export default function Home ({isLoaded}) {
     }
 
     useEffect(() => {
-        async function run() {
-            let response
-            try{
-                response = await csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search/multiple`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        symbols: stocks?.map(stock => stock?.ticker),
-                        to: dayBefore,
-                        from: dayCounter(350),
-                    })
-                })
-            } catch(err) {
-                console.log(err)
-            }
-            const data = await response.json()
-            setData(data)
-            return data
-        }
+        run()
+        .then((data) => original(data))
+        .then((data) => complete(data))
+        .then(entries => currentPrice(entries, orig))
+        .catch(err => console.log(err))
+    }, [stocks, data])
 
-        const complete = function (entries, type) {
-            let list = []
-            for (const [idx, [key, val]] of Object?.entries(Object?.entries(entries.pass))) {
+    async function run() {
+        if (stocks.length > 0 && once) {
+            const dataset = await dispatch(fetchMultipleTickers({stocks, dayBefore, dayCounter:dayCounter(100)}))
+            return dataset
+        }
+    }
+
+    const complete = function (entries, type) {
+        let list = []
+        for (const [idx, [key, val]] of Object?.entries(Object?.entries(entries.pass))) {
+            
+            for (let j = 0; j < val.length; j++) {
                 
-                for (let j = 0; j < val.length; j++) {
-                    
-                    if (list?.length == val?.length) {
-                        list[j] = (list[j]+(val[j]?.close * entries.obj[key]?.qty  ))
-                    } else {
-                        list.push(val[j]?.close)
-                    }
+                if (list?.length == val?.length) {
+                    list[j] = (list[j]+(val[j]?.close * entries.obj[key]?.qty  ))
+                } else {
+                    list.push(val[j]?.close)
                 }
             }
-            setList(list.reverse())  
+        }
+        setList(list.reverse())  
 
-            return entries
-        }
-        
-        if (stocks?.length > 0&&once) {
-            run()
-            .then((data) => original(data))
-            .then((data) => complete(data))
-            .then(entries => currentPrice(entries, orig))
-            .catch(err => console.log(err))
-            
-            setOnce(false)
-        }
-    }, [stocks, data])
+        return entries
+    }
     
     const original = function (pass) {
         let obj = {}
