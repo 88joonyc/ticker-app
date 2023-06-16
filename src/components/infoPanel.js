@@ -52,7 +52,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
         keyStats = data?.results[data?.results?.length-1] 
         pastYield = (data?.results[data?.results?.length-1].c - data?.results[0].c).toFixed(2)
     }
-    console.log('this is hit', news)
+
 
     if (data.error) {
         alert(`error due to following: ${data.error}`)
