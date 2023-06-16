@@ -3,90 +3,15 @@ import react, { useState, useEffect } from 'react';
 import { VictoryChart, VictoryAxis, VictoryLine, VictoryGroup, VictoryContainer } from 'victory';
 import Wallet from '../components/wallet';
 import SidePanel from '../components/sidePanel';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchMultipleTickers } from '../store/multiple';
+import { useSelector } from 'react-redux';
 
 import { SplashPage } from './SplashPage';
 
-export default function Home ({isLoaded}) {
-    const dispatch = useDispatch();
-    const session = useSelector(state => state?.session?.user)
-
+export default function Home ({isLoaded, stocks, total, current, list}) {
     const [openWallet, setOpenWallet] = useState(false); 
-
-    const [list, setList] = useState([]);
-    const [orig, setOrigi] = useState({});
-    const [once, setOnce] = useState(true)
-    const [avg, setAvg] = useState(0)
-    const [current, setCurrent] = useState(0)
-    const [total, setTotal] = useState(0)
-
-    const stocks = useSelector(state => state?.stock?.stock)
+    
+    const session = useSelector(state => state?.session?.user)
     const data = useSelector(state => state?.multiple?.multiple)
-
-    const today = new Date();
-    var todaysDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDay();
-    var dayBefore =  new Date(today.setDate(today.getDate()-2)).toISOString().split('T')[0]
-    
-    var dayCounter = function(days) {
-        return new Date(today.setDate(today.getDate()-days)).toISOString().split('T')[0]
-    }
-
-    useEffect(() => {
-        run()
-        .then((data) => original(data))
-        .then((data) => complete(data))
-        .then(entries => currentPrice(entries, orig))
-        .catch(err => console.log(err))
-    }, [stocks])
-
-    async function run() {
-        if (stocks.length > 0 && once) {
-            const dataset = await dispatch(fetchMultipleTickers({stocks, dayBefore, dayCounter:dayCounter(350)}))
-            return dataset
-        }
-    }
-
-    var complete = function (entries, type) {
-        let list = []
-        for (const [idx, [key, val]] of Object?.entries(Object?.entries(entries.pass))) {
-            
-            for (let j = 0; j < val.length; j++) {
-                
-                if (list?.length == val?.length) {
-                    list[j] = (list[j]+(val[j]?.close * entries.obj[key]?.qty  ))
-                } else {
-                    list.push(val[j]?.close)
-                }
-            }
-        }
-        setList(list.reverse())  
-
-        return entries
-    }
-    
-    var original = function (pass) {
-        let obj = {}
-        let sum = 0
-        stocks.forEach(tick => {
-            sum += (tick.originalPrice * tick.qty)
-            obj[tick.ticker]={ qty: tick?.qty, originalPrice: tick?.originalPrice} 
-        })  
-        setOrigi(obj)
-        setAvg(sum)
-        return {pass, obj}
-    };
-
-    var currentPrice = function ({pass, obj}) {
-        let current = 0
-        let total = 0
-        for (const [key, val] of Object.entries(pass)) {
-            current += (pass[key][0].close  * obj[key].qty) - (obj[key].originalPrice*obj[key].qty)
-            total += (pass[key][0].close  * obj[key].qty)
-        }
-        setCurrent(current)
-        setTotal(total)
-    }
 
     return (
         <>
