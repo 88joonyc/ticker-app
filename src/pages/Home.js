@@ -13,6 +13,8 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
     const session = useSelector(state => state?.session?.user)
     const data = useSelector(state => state?.multiple?.multiple)
 
+    const unused = []
+
     return (
         <>
             {session?.id&&<>
