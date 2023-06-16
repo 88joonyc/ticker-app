@@ -17,7 +17,7 @@ export default function MainRoutes ({isLoaded, stocksData, total, current, list}
         <>      
         <NavBar />
         <Routes>
-            <Route  path='/' element={<> <Home isLoaded={isLoaded} stocksData={stocksData} total={total} current={current} list={list} /></>} />
+            <Route  path='/' element={<> <Home isLoaded={isLoaded} stocks={stocksData} total={total} current={current} list={list} /></>} />
             {/* <Route  path='/ticker/:ticker' element={<Ticker /> } /> */}
         </Routes>
         <NavBarMobile/>
