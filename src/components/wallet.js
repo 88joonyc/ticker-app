@@ -57,7 +57,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                 <div className="relative ">
                     <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t border' : 'text-black bg-white'} hover:cursor-pointer flex flex-col justify-center border-b`}>
                         <div className='flex mx-5 md:mx-6 flex-col justify-between relative '>
-                            <div className="flex justify-between text-lg md:text-lg">
+                            <div className="flex justify-between text-sm md:text-lg">
 
                                 <span className='font-bold'>{ wallet ? 'Buying Power' : 'Add Wallet'}</span>
                                 {wallet.length > 1&&<span className='font-medium'>${wallet?.reduce((acc , curr) => acc.buyingPower + curr.buyingPower)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>}
@@ -65,7 +65,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                         </div>
                     </div>
                     <>
-                        <div className={`w-full mx-auto border absolute top-[80px] border-t text-base hover:text-black transition-[height] md:rounded-b linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[185px] md:h-[250px]' : '  h-0 ' }`}>
+                        <div className={`w-full mx-auto border absolute top-[80px] border-t text-xs hover:text-black transition-[height] md:rounded-b linear duration-[.2s] ${toggle ? 'bg- drop-shadow-xl  h-[185px] md:h-[250px]' : '  h-0 ' }`}>
                             <div className={`grid md:grid-cols-[1fr,1fr] mx-5 md:mx-6 mt-8  ${toggle ? 'block' : 'hidden'}`}>
                                 <div>
                                     {wallet && wallet?.map(funds => (
