@@ -3,7 +3,7 @@ import react, { useState, useEffect } from 'react';
 import { useDebounce } from "use-debounce";
 import { Link } from "react-router-dom";
 
-export default function SearchBar ({}) {
+export default function SearchBar ({full}) {
 
     const [ keyword, setKeyword ] = useState();
     const [ bestMatches, setBestMatches ] = useState([])
@@ -30,13 +30,14 @@ export default function SearchBar ({}) {
 
     return (
         <>
-            {<div className="hidden mx-auto p-2 relative md:flex justify-center">
+             <div className=" mx-auto p-2 relative md:flex justify-center">
                 <input className={`px-2 py-2 text-sm ${full ? 'w-full' :'lg:w-[500px]' } ${searchQuery ? 'rounded-t' : 'rounded-md'} border border-grey-100`} placeholder="search" onChange={e => setKeyword(e.target.value)}/>
-                {searchQuery&&<div className="absolute top-[53px] md:right-[8px]">
-                    <div className="w-[80vw] md:w-[500px] opacity-85 bg-white">
-                        {bestMatches.map((matches, idx) => (
+                {searchQuery&&<div className="relative md:absolute top-[53px] md:right-[8px] z-50">
+                    <div className="w-full md:w-[500px] opacity-85 bg-white border">
+                        <h3 className='pb-4 p-2 text-xs font-bold text-midnightPurple'>Stocks</h3>
+                        {bestMatches.filter(ele =>(ele['3. type'] == 'Equity')&&(ele['4. region'] == 'United States')).map((matches, idx) => (
                             <Link to={`/ticker/${matches['1. symbol']}`} key={`${matches['1. symbol']} -- ${idx}`} onClick={() => setKeyword('')}>
-                                <div className="border p-3  text-xs flex justify-between hover:text-white hover:bg-midnightPurple">
+                                <div className="p-3 z-[500]  text-xs flex justify-between hover:text-white hover:bg-midnightPurple">
                                     <div >{matches['1. symbol']}</div>
                                     <div >{matches['2. name']}</div>
                                 </div>
@@ -44,7 +45,7 @@ export default function SearchBar ({}) {
                         ))}
                     </div>
                 </div>}
-            </div>}
+            </div>
         </>
     )
 }
