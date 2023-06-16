@@ -21,16 +21,16 @@ export const complete = function (entries, setList) {
     return entries
 }
 
-export const original = function (pass, stocksData, setOrigi, setAvg)  {
+export const original = function (pass, stocks, setOrigi, setAvg)  {
     let obj = {}
     let sum = 0
 
     const start = 0 
     const end = 500
-    stocksData.slice()
+    stocks.slice()
 
 
-    stocksData.forEach(tick => {
+    stocks.forEach(tick => {
         sum += (tick.originalPrice * tick.qty)
         obj[tick.ticker]={ qty: tick?.qty, originalPrice: tick?.originalPrice} 
     })  
