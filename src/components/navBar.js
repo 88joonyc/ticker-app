@@ -49,7 +49,7 @@ export default function NavBar() {
 
     return (
         <div className={`mx-auto sticky z-40 bg-white top-0 left-0  ${!session?.id && 'border'}`}>
-            <div className=" flex mx-auto items-center px-4 justify-between">
+            {!showMobileSearch&&<div className=" flex mx-auto items-center px-4 justify-between">
                 <Link to='/' className="hidden md:block">
                     <img className="w-[120px] h-[20px] object-contain" src={logo} />
                 </Link>
@@ -81,7 +81,18 @@ export default function NavBar() {
                 <button className="md:hidden h-16" onClick={toggleSearch}>
                     <FaSearch style={{ fontSize: '25px'}}/>
                 </button>
-            </div>
+            </div>}
+            {showMobileSearch&&<>
+                <div className="absolute h-[100vh] w-[100vw] bg-white">
+                    <button className="p-4" onClick={toggleSearch}>
+                        <IoChevronBackOutline style={{ fontSize: '25px' }} />
+                    </button>
+                    <div className="">
+                        <SearchBar show full />
+
+                    </div>
+                </div>
+            </>}
         </div>
     )
 }
