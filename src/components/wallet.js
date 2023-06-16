@@ -29,7 +29,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
             const response = await dispatch(create({userId:session.id, accountType, amount}))
             const data = await response.json()
             if (data.status == "OK") {
-                console.log(data)
+
                 alert('Wallet has been added!')
                 setOpenWallet(false)
             } else {
