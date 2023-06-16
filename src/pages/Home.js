@@ -26,7 +26,7 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
                             ${(total)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
                         <div className={` md:text-xl ml-5 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
-                            {current > 0 && '+'}${(current).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            {current > 0 && '+'}${(current)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         {!openWallet&&<>
                             <div className='hidden md:block'>
