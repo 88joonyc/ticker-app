@@ -17,7 +17,7 @@ export const fetchMultipleTickers = ({stocks, dayBefore, dayCounter}) => async (
             body: JSON.stringify({
                 symbols: stocks?.map(stock => stock?.ticker),
                 to: dayBefore,
-                from: dayCounter(350),
+                from: dayCounter,
             })
         })
     } catch(err) {
