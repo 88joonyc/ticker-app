@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { FaSearch } from "react-icons/fa";
+import { IoChevronBackOutline } from "react-icons/io5";
 
 import SearchBar from "./searchBar";
 
