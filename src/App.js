@@ -26,7 +26,6 @@ function App() {
   
   const [list, setList] = useState([]);
   const [orig, setOrigi] = useState({});
-  const [once, setOnce] = useState(true)
   const [avg, setAvg] = useState(0)
   const [current, setCurrent] = useState(0)
   const [total, setTotal] = useState(0)
