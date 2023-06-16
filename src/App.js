@@ -56,7 +56,7 @@ function App() {
 
   async function run() {
     if (stocksData.length ) {
-      const dataset = dispatch(fetchMultipleTickers({stocksData, dayBefore, dayCounter:dayCounter(1250, today)}))
+      const dataset = dispatch(fetchMultipleTickers({stocks:stocksData, dayBefore, dayCounter:dayCounter(1250, today)}))
         return dataset
     }
   }
