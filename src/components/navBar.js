@@ -53,7 +53,7 @@ export default function NavBar() {
                 <Link to='/' className="hidden md:block">
                     <img className="w-[120px] h-[20px] object-contain" src={logo} />
                 </Link>
-                <SearchBar showMenu={showMenu}/>
+                <SearchBar />
                 <Link className={`${ href === 'https://ticker-app-production.up.railway.app/' ? 'hidden' : ''} md:hidden`}   to='/'>
                     <IoChevronBackOutline style={{ fontSize: '25px' }} />
                 </Link>
@@ -88,8 +88,7 @@ export default function NavBar() {
                         <IoChevronBackOutline style={{ fontSize: '25px' }} />
                     </button>
                     <div className="">
-                        <SearchBar show full />
-
+                        <SearchBar full />
                     </div>
                 </div>
             </>}
