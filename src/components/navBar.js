@@ -52,6 +52,9 @@ export default function NavBar() {
                     <img className="w-[120px] h-[20px] object-contain" src={logo} />
                 </Link>
                 <SearchBar showMenu={showMenu}/>
+                <Link className={`${ href === 'https://ticker-app-production.up.railway.app/' ? 'hidden' : ''} md:hidden`}   to='/'>
+                    <IoChevronBackOutline style={{ fontSize: '25px' }} />
+                </Link>
                 <div className="flex md:gap-8 text-xs font-medium">
                     {!session&&<>
                         <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer mr-10 md:mr-0">Log In</Link>
