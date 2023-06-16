@@ -72,7 +72,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
     return (
         <div className="">
             <div>
-                <h1 className="text-2xl md:text-4xl mb-0 md:mb-4 mt-8 ml-4">{meta.results?.name}</h1>
+                <h1 className="text-2xl md:text-4xl mb-0 md:mb-4 mt-0 md:mt-8 ml-4">{meta.results?.name}</h1>
                 {data.results&&(
                     <div className="ml-4">
                         <h2 className="text-3xl md:text-5xl">${data.results[data?.results?.length-1].c}</h2> 
