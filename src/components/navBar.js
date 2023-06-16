@@ -17,6 +17,7 @@ export default function NavBar() {
 
     const session = useSelector(state => state.session.user)
 
+    const href = window.location.href
   
     const toggleMenu = (e) => {
         e.stopPropagation()
