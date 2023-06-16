@@ -19,7 +19,7 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
                 <div className='max-w-[1440px] mx-auto'> 
                     <div className='grid md:grid-cols-[75%,25%] md:px-6'>
                         <div className='md:mr-8'> {/* // may change */}
-                        <h1 className={`mt-0 md:mt-8 text-4xl md:text-4xl ml-5 md:ml-0`}>
+                        <h1 className={`mt-0 md:mt-8 text-2xl md:text-4xl ml-5 md:ml-0`}>
                         <div className='md:hidden'>
                             Investing
                         </div>
