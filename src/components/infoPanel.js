@@ -95,7 +95,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
             <div className="mr-2 md:mr-0">
 
-                <div className="flex text-lg md:text-xl mb-4 md:mb-8 ml-4 justify-between md:justify-normal md:gap-10">
+                <div className="flex text-lg md:text-xl mb-4 md:mb-4 ml-4 justify-between md:justify-normal md:gap-10">
                     <div type="radio" className={`cursor-pointer ${day == 2 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(2)} value={2}>1D</div>
                     <div type="radio" className={`cursor-pointer ${day == 8 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(8)} value={8}>1W</div>
                     <div type="radio" className={`cursor-pointer ${day == 31 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(31)} value={31}>1M</div>
@@ -107,7 +107,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                 <div>
                     <h2 className="text-lg md:text-xl border-b pb-2 md:pb-4 font-bold ml-4"> About {ticker}</h2>
                     <h3 className="py-4  text-sm md:text-base ml-4">{meta.results?.description}</h3>
-                    <div className="grid grid-cols-2  md:flex justify-between mb-4 md:mb-8 ml-4">
+                    <div className="grid grid-cols-2  md:flex justify-between mb-4 md:mb-4 ml-4">
                         <div className=" text-sm">
                             <h2 className="mb-2 font-bold">Employees</h2>
                             <h3>{meta.results?.total_employees}</h3>
@@ -124,7 +124,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
                     <div className="">
                         <h2 className="text-lg md:text-xl border-b pb-2 md:pb-4 font-bold ml-4">Key {ticker} statistics</h2>
-                        <div className="py-4 ml-4 grid grid-cols-2 md:grid-cols-4 gap-y-4 text-sm mb-8">
+                        <div className="py-4 ml-4 grid grid-cols-2 md:grid-cols-4 gap-y-4 text-sm mb-4">
                             <div>
                                 <h3 className="font-bold">High yesterday</h3>
                                 <div>{keyStats?.h}</div>
@@ -150,7 +150,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
                     {/* news - create separate components*/}
                     <div>
-                        <h2 className="border-b pb-2 md:pb-4 ml-4  mb-4 md:mb-8 flex justify-between align-bottom text-sm md:text-base"><span className="text-lg md:text-xl font-bold">{ticker} News</span><span className="flex items-end md:hover:text-highlightPurple">show more</span></h2>
+                        <h2 className="border-b pb-2 md:pb-4 ml-4  mb-4 md:mb-4 flex justify-between align-bottom text-sm md:text-base"><span className="text-lg md:text-xl font-bold">{ticker} News</span><span className="flex items-end md:hover:text-highlightPurple">show more</span></h2>
                         <div>
                             {news.results?.map((report, idx) => (
                                 <>
@@ -170,7 +170,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                     </div>
                 </div>
 
-                <div className="ml-4 mt-8 mb-8">
+                <div className="ml-4 mt-8 mb-4">
                     {!disclose&&<div className="mb-4 text-xs md:text-md text-gray-500">
                         All investments involve risks, including the loss of principal. Securities trading offered through Gotham Financial LLC, Member SIPC and a registered broker-dealer. 
                     </div>}
