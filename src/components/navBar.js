@@ -39,6 +39,11 @@ export default function NavBar() {
 
     const toggleSearch = e => {
         e.stopPropagation()
+        if(showMobileSearch){
+            window.scrollTo(0, 0)
+        }else{
+            window.scrollTo(0, 500)
+        }
         toggleMobileSearch(!showMobileSearch)
     }
 
