@@ -108,15 +108,15 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                     <h2 className="text-lg md:text-xl border-b pb-2 md:pb-8 font-bold ml-4"> About {ticker}</h2>
                     <h3 className="py-8  text-sm md:text-base ml-4">{meta.results?.description}</h3>
                     <div className="grid grid-cols-2  md:flex justify-between mb-4 md:mb-8 ml-4">
-                        <div className=" text-sm md:text-xl">
+                        <div className=" text-sm">
                             <h2 className="mb-2 font-bold">Employees</h2>
                             <h3>{meta.results?.total_employees}</h3>
                         </div>
-                        <div className=" text-sm md:text-xl">
+                        <div className=" text-sm">
                             <h2 className="mb-2 font-bold">Headquarters</h2>
                             <h3>{meta.results?.address?.city}, {meta.results?.address?.state}</h3>
                         </div>
-                        <div className=" text-sm md:text-xl mt-2 md:mt-0">
+                        <div className=" text-sm mt-2 md:mt-0">
                             <h2 className="font-bold mb-2">List Date</h2>
                             <h3>{meta.results?.list_date}</h3>
                         </div>
