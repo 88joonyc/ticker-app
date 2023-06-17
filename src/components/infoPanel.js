@@ -95,7 +95,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
             <div className="mr-2 md:mr-0">
 
-                <div className="flex text-lg md:text-xl mb-4 md:mb-4 ml-4 justify-between md:justify-normal md:gap-10">
+                <div className="flex text-lg md:text-base mb-4 md:mb-4 ml-4 justify-between md:justify-normal md:gap-6">
                     <div type="radio" className={`cursor-pointer ${day == 2 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(2)} value={2}>1D</div>
                     <div type="radio" className={`cursor-pointer ${day == 8 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(8)} value={8}>1W</div>
                     <div type="radio" className={`cursor-pointer ${day == 31 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(31)} value={31}>1M</div>
