@@ -106,7 +106,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
                 <div>
                     <h2 className="text-lg md:text-xl border-b pb-2 md:pb-8 font-bold ml-4"> About {ticker}</h2>
-                    <h3 className="py-8  text-sm md:text-xl ml-4">{meta.results?.description}</h3>
+                    <h3 className="py-8  text-sm md:text-base ml-4">{meta.results?.description}</h3>
                     <div className="grid grid-cols-2  md:flex justify-between mb-4 md:mb-8 ml-4">
                         <div className=" text-sm md:text-xl">
                             <h2 className="mb-2 font-bold">Employees</h2>
