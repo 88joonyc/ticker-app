@@ -157,9 +157,9 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                                     {idx < 3 && <>
                                     <div className="flex justify-between items-center hover:bg-gray-100 hover:cursor-pointer p-4 gap-4">
                                         <div className="pt-4 pb-4">
-                                            <div className=" text-xs md:text-xl mb-2">{report?.author}</div> 
-                                            <div className=" text-xs md:text-xl font-bold">{report?.title}</div>
-                                            <div className="text-sm md:text-lg text-gray-500">{report?.description != undefined&&report?.description?.substring(0, 60) + '...'}</div>
+                                            <div className=" text-xs md:text-sm mb-2">{report?.author}</div> 
+                                            <div className=" text-xs md:text-sm font-bold">{report?.title}</div>
+                                            <div className="text-sm md:text-base text-gray-500">{report?.description != undefined&&report?.description?.substring(0, 60) + '...'}</div>
                                         </div>
                                         <img className="object-cover w-10 h-10 md:h-[200px] md:w-[200px] text-center" src={report.image_url} />
                                     </div>
