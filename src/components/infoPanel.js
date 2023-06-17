@@ -161,7 +161,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                                             <div className=" text-xs md:text-sm font-bold">{report?.title}</div>
                                             <div className="text-sm md:text-base text-gray-500">{report?.description != undefined&&report?.description?.substring(0, 60) + '...'}</div>
                                         </div>
-                                        <img className="object-cover w-10 h-10 md:h-[200px] md:w-[200px] text-center" src={report.image_url} />
+                                        <img className="object-cover w-10 h-10 md:h-[134px] md:w-[196px] text-center" src={report.image_url} />
                                     </div>
                                     </>} 
                                 </>
