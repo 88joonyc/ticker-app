@@ -155,7 +155,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                             {news.results?.map((report, idx) => (
                                 <>
                                     {idx < 3 && <>
-                                    <div className="flex justify-between items-center hover:bg-gray-100 hover:cursor-pointer p-4 gap-4">
+                                    <div className="flex justify-between hover:bg-gray-100 hover:cursor-pointer p-4 gap-8">
                                         <div className="pt-4 pb-4">
                                             <div className=" text-xs md:text-sm mb-2">{report?.author}</div> 
                                             <div className=" text-xs md:text-sm font-bold">{report?.title}</div>
