@@ -105,8 +105,8 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                 </div>
 
                 <div>
-                    <h2 className="text-lg md:text-xl border-b pb-2 md:pb-8 font-bold ml-4"> About {ticker}</h2>
-                    <h3 className="py-8  text-sm md:text-base ml-4">{meta.results?.description}</h3>
+                    <h2 className="text-lg md:text-xl border-b pb-2 md:pb-4 font-bold ml-4"> About {ticker}</h2>
+                    <h3 className="py-4  text-sm md:text-base ml-4">{meta.results?.description}</h3>
                     <div className="grid grid-cols-2  md:flex justify-between mb-4 md:mb-8 ml-4">
                         <div className=" text-sm">
                             <h2 className="mb-2 font-bold">Employees</h2>
@@ -123,8 +123,8 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                     </div>
 
                     <div className="">
-                        <h2 className="text-lg md:text-xl border-b pb-2 md:pb-8 font-bold ml-4">Key {ticker} statistics</h2>
-                        <div className="py-8 ml-4 grid grid-cols-2 md:grid-cols-4 gap-y-4 text-sm mb-8">
+                        <h2 className="text-lg md:text-xl border-b pb-2 md:pb-4 font-bold ml-4">Key {ticker} statistics</h2>
+                        <div className="py-4 ml-4 grid grid-cols-2 md:grid-cols-4 gap-y-4 text-sm mb-8">
                             <div>
                                 <h3 className="font-bold">High yesterday</h3>
                                 <div>{keyStats?.h}</div>
@@ -150,7 +150,7 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
 
                     {/* news - create separate components*/}
                     <div>
-                        <h2 className="border-b pb-2 md:pb-8 ml-4  mb-4 md:mb-8 flex justify-between align-bottom text-sm md:text-base"><span className="text-lg md:text-xl font-bold">{ticker} News</span><span className="flex items-end md:hover:text-highlightPurple">show more</span></h2>
+                        <h2 className="border-b pb-2 md:pb-4 ml-4  mb-4 md:mb-8 flex justify-between align-bottom text-sm md:text-base"><span className="text-lg md:text-xl font-bold">{ticker} News</span><span className="flex items-end md:hover:text-highlightPurple">show more</span></h2>
                         <div>
                             {news.results?.map((report, idx) => (
                                 <>
