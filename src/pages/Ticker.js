@@ -52,7 +52,7 @@ export default function Ticker () {
 
     return (
         <>
-            <div className="max-w-[1440px] mx-auto">
+            <div className="max-w-[1140px] mx-auto">
                 <div className="relative">
                      <div className="grid md:grid-cols-[2.5fr,1.2fr] gap-x-20 md:px-4">
                         <div>
