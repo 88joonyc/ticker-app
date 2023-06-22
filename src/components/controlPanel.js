@@ -70,8 +70,8 @@ export default function ControlPanel ({ticker, data}) {
 
     const getPower = function() {
         if (wallet.wallet) {
-            let type = wallet.wallet.filter(power => power.accountType == account)
-            return type[0].buyingPower
+            let type = wallet.wallet.filter(power => power.accountType === account)
+            return type[0]?.buyingPower
         }
     }
 
