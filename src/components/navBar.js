@@ -90,11 +90,11 @@ export default function NavBar() {
                 </button>
             </div>}
             {showMobileSearch&&<>
-                <div className="absolute h-[100vh] w-[100vw] bg-white">
+                <div className="absolute h-[100vh] w-full bg-white">
                     <button className="p-4" onClick={toggleSearch}>
                         <IoChevronBackOutline style={{ fontSize: '25px' }} />
                     </button>
-                    <div className="">
+                    <div>
                         <SearchBar full />
                     </div>
                 </div>
