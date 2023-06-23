@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryGroup, VictoryScatter } from 'victory';
-import { csrfFetch } from "../store/csrf";
+import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryContainer } from 'victory';
 
 export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
     var today = new Date();
