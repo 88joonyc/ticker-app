@@ -81,7 +81,18 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                 )}
             </div>
             <div className="md:hidden">
-                <VictoryChart height={400} padding={{ top: 50, bottom: 50, right: 0, left: 0 }}>
+                <VictoryChart 
+                        height={400} 
+                        padding={{ top: 50, bottom: 50, right: 0, left: 0 }}
+                        containerComponent={
+                            <VictoryContainer 
+                                style={{
+                                    userSelect:'auto',
+                                    touchAction:'auto'
+                                }}
+                            />
+                        }
+                    >
                     <VictoryLine data={data.results} style={{ data: {stroke: "#280137" }}} y="c" />
                     <VictoryAxis style={{ axis: {stroke: "transparent"}, ticks: {stroke: "transparent"}, tickLabels: { fill:"transparent"} }}/>
                 </VictoryChart> 
