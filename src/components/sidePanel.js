@@ -28,7 +28,6 @@ export default function SidePanel ({data, list}) {
                                                 containerComponent={
                                                     <VictoryContainer 
                                                         style={{
-                                                            pointerEvents: "auto",
                                                             userSelect:'auto',
                                                             touchAction:'auto'
                                                         }}
