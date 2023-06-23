@@ -45,7 +45,6 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
                                             containerComponent={
                                                 <VictoryContainer 
                                                     style={{
-                                                        pointerEvents: "auto",
                                                         userSelect:'auto',
                                                         touchAction:'auto'
                                                     }}
