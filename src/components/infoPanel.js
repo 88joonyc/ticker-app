@@ -108,8 +108,8 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                     <div type="radio" className={`cursor-pointer ${day == 8 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(8)} value={8}>1W</div>
                     <div type="radio" className={`cursor-pointer ${day == 31 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(31)} value={31}>1M</div>
                     <div type="radio" className={`cursor-pointer ${day == 91 ? 'font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ' : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(91)} value={91}>3M</div>
-                    <div type="radio" className={`cursor-pointer ${day == 366 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(366)} value={366}>1Y</div>
-                    <div type="radio" className={`cursor-pointer ${day == 1827 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'}`} onClick={() => handleChange(1827)} value={1827}>5Y</div>
+                    <div type="radio" className={`cursor-pointer ${day == 366 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(366)} value={366}>1Y</div>
+                    <div type="radio" className={`cursor-pointer ${day == 1827 ? `font-bold text-[#280137] border-b-4 border-[#280137] pb-4 ` : 'text-black'} hover:font-bold hover:text-[#280137]`} onClick={() => handleChange(1827)} value={1827}>5Y</div>
                 </div>
 
                 <div>
