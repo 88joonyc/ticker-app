@@ -7,7 +7,6 @@ import { IoChevronBackOutline } from "react-icons/io5";
 
 import SearchBar from "./searchBar";
 
-import logo from './batmanlogo.png'
 import * as sessionActions from '../store/session'
 import { LogoSvg } from "../assets/logoSvg";
 
