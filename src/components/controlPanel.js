@@ -115,7 +115,7 @@ export default function ControlPanel ({ticker, data}) {
                         ${!getPower() ? 0 : getPower().toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available
                     </div>
                     <button className='hover:bg-fadedPurple w-full flex justify-center py-4 border-t' onClick={toggleMenu}>
-                        <label className='text-base flex justify-between'> {account == 'dollars' ? 'Brokerage' : 'Bitcoin' }
+                        <label className='text-base flex justify-between cursor-pointer'> {account == 'dollars' ? 'Brokerage' : 'Bitcoin' }
                         </label>
                     </button>
                     {showMenu&&<div>
