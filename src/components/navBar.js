@@ -9,6 +9,7 @@ import SearchBar from "./searchBar";
 
 import logo from './batmanlogo.png'
 import * as sessionActions from '../store/session'
+import { LogoSvg } from "../assets/logoSvg";
 
 export default function NavBar() {
     const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function NavBar() {
         <div className={`mx-auto sticky z-40 bg-white top-0 left-0  ${!session?.id && 'border'}`}>
             {!showMobileSearch&&<div className=" flex mx-auto items-center px-4 justify-between">
                 <Link to='/' className="hidden md:block">
-                    <img className="w-[120px] h-[20px] object-contain" src={logo} />
+                    <LogoSvg />
                 </Link>
                 <div className="hidden md:block">
                     <SearchBar/>
