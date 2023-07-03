@@ -109,7 +109,7 @@ export default function ControlPanel ({ticker, data}) {
                                 ${qty ? (qty*data?.results?.[data?.results?.length-1]?.c).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
                             </div>
                         </div>
-                        <button className='p-4 border rounded-full my-2 mt-10 text-sm text-white font-bold bg-midnightPurple hover:bg-purple-950'>review order</button>
+                        <button className='p-4 border rounded-full my-2 mt-10 text-sm text-white font-bold bg-midnightPurple hover:bg-highlightPurple'>review order</button>
                     </form>
                     <div className='w-full flex justify-center p-4 border-t mt-6'>
                         ${!getPower() ? 0 : getPower().toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available
