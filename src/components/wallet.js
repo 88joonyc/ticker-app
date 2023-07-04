@@ -55,7 +55,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
         <>
             <div className={`transition-[height]  linear duration-[.2s] ${toggle ? "h-[265px] md:h-[305px]" : " h-[130px]"} relative`}>
                 <div className="relative ">
-                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t border' : 'text-black bg-white'} hover:cursor-pointer flex flex-col justify-center border-b`}>
+                    <div onClick={() =>  setToggle(toggle)} className={`w-full h-20 py-8 border-t border-b ${toggle ? ' md:rounded-t border' : 'text-black bg-white'} flex flex-col justify-center border-b`}>
                         <div className='flex mx-5 md:mx-6 flex-col justify-between relative '>
                             <div className="flex justify-between text-sm md:text-lg">
 
