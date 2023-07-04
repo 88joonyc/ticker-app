@@ -76,7 +76,7 @@ export default function Wallet ({openWallet, setOpenWallet}) {
                                             </div>
                                         </div>
                                     ))}
-                                    <button onClick={() => (setOpenWallet(!openWallet)) } className="hidden md:block px-16 py-3 text-xs font-bold text-white bg-midnightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
+                                    <button onClick={() => (setOpenWallet(!openWallet)) } className="hidden md:block px-16 py-3 text-xs font-bold text-white bg-midnightPurple hover:bg-highlightPurple w-full rounded-full md:mt-6">Deposit Funds</button>
                                 </div>
                                 <div className="font-light text-black mx-8 hidden md:block">
                                 Buying power represents the total value of assets you can purchase.
