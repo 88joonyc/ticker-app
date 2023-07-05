@@ -105,7 +105,7 @@ export default function ControlPanel ({ticker, data}) {
                         </div>
                         <div className='flex pt-4 justify-between font-bold border-t mt-4'>
                             <div>
-                                Estimated Cost
+                               Estimated {control == 'buy' ? 'Cost' : 'Credit'}
                             </div>
                             <div>
                                 ${qty ? (qty*data?.results?.[data?.results?.length-1]?.c).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}
