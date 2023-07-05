@@ -86,10 +86,9 @@ export default function ControlPanel ({ticker, data}) {
                         <button onClick={() => setControl('sell')} className={`text-xl mb-8 font-bold capitalize hover:text-highlightPurple px-6 ${control != 'buy' ? 'text-highlightPurple border-b-4 border-highlightPurple' : 'text-midnightPurple' }`}>Sell{ ' ' + ticker} </button>
                     </div>
                     <form onSubmit={submitPurchase} className='flex flex-col px-6'>
-                        <label className='text-base flex justify-between'> Buy in
+                        <label className='text-base flex justify-between'><span className='capitalize'>{control} in</span>
                             <select className='border bg-white p-2 w-[150px] ' onChange={e => setType(e.target.value)}>
                                 <option value='shares'>Shares</option>
-                                {/* <option value='dollars'>Dollars</option> */}
                             </select>
                         </label>
                         <div></div>
