@@ -10,6 +10,8 @@ export default function ControlPanel ({ticker, data}) {
 
     const userId = useSelector(state => state.session.user?.id)
     const wallet = useSelector(state => state.wallet)
+    const shares = useSelector(state => state?.stock?.stock)
+    const share = shares.filter(share => share.ticker == ticker)
     const naviagte = useNavigate();
 
     const [control, setControl] = useState('buy')
@@ -74,8 +76,6 @@ export default function ControlPanel ({ticker, data}) {
             return type[0]?.buyingPower
         }
     }
-
-
 
     return (
         <>
