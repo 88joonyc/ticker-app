@@ -59,7 +59,7 @@ export default function NavBar() {
                 <Link className={`${ href === 'https://ticker-app-production.up.railway.app/' ? 'hidden' : ''} md:hidden`}   to='/'>
                     <IoChevronBackOutline style={{ fontSize: '25px' }} />
                 </Link>
-                <div className="flex md:gap-8 text-xs font-bold">
+                <div className="flex md:gap-8 text-sm font-bold">
                     {!session&&<>
                         <Link to='/login' className="hover:text-highlightPurple hover:cursor-pointer mr-10 md:mr-0">Log In</Link>
                         <Link to='/signup' className="hover:text-highlightPurple hover:cursor-pointer">Sign Up</Link>
