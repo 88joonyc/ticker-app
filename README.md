@@ -1,77 +1,109 @@
+# Batman's Hood![batmanlogo](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/effd806b-4417-4cd4-a0f6-322ecfa98d68)
+
+*By: Paul Chang. --  [Batman's Hood](https://ticker-app-production.railway.app.com/ "Named link title")*
+
+[Batman's Hood](https://ticker-app-production.railway.app.com/ "Named link title")* is an [Robinhood](https://robinhood.com/ "Named link title") clone. 
+
+### Table of Contents:
+ - [Application Features](#application-features)
+ - [Installation](#installation)
+ - [Technologies Used](#technologies-used)
+ - [Wiki Documentation](#wiki-documentation)
+ - [Future Plans](#future-plans)
+<!--  - [Conclusion](#conclusion) -->
+ <!--  - Frontend Overview
+ - Backend Overview -->
+
+
+# Application Features 
+
+## Sign up 
+![Screenshot from 2023-08-28 19-14-04](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/0fd6b7f3-342f-4205-a0aa-0065663c23f9)
+
+## Log in
+![Screenshot from 2023-08-28 19-14-22](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/28d25fc5-2de0-49f0-ac93-5abfe17251cc)
+
+## Home page
+*User stock portfolio is displayed along with available funds in wallet*
+![Screenshot from 2023-08-28 19-15-47](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/7c7732f4-73e8-4650-a000-a2938c921a72)
+
+## Search bar
+*Search uses third-party API to query by keyword and return all Stocks and ETFs.*
+![Screenshot from 2023-08-28 19-17-44](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/2356b1a1-2ac5-4f98-9bba-f04f48cc78b3)
+
+## Purchase stock
+*User can purchase stock on the stock page.*
+![Screenshot from 2023-08-28 19-18-37](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/bab1e4b3-b0e5-4555-8966-67587967c306)
+
+## Add wallet and funds
+*User can all a wallet and add funds to a selected wallet.*
+![Screenshot from 2023-08-28 19-19-06](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/28b97c7d-eebb-48c1-9f1c-228bddae3039)
+
+## Mobile-first responsive design
+*Search will use the input value and search through by event names.*
+![Screenshot from 2023-08-28 19-22-08](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/ef645df1-7934-47c8-a525-b0adc2502967)
+
+
+# Installation
+
+under construction
+
+
+
+# Technologies used
+- Javascript
+- Node.js
+- Express
+- React
+- Redux
+- PosgreSQL
+- Railway
+- TailwindCSS
+- Git
+
+# External API's connected
+- https://polygon.io/docs/stocks/getting-started
+- https://www.alphavantage.co/documentation/
+
+
+# Wiki Documentation
+<!--  - ### [Home](https://github.com/88joonyc/Adventure_time/wiki "Named link title") -->
+<!--  - ### [Feature List](https://github.com/88joonyc/Adventure_time/wiki/MVP-Feature-List "Named link title") -->
+<!--  - ### [API Docs](https://github.com/88joonyc/Adventure_time/wiki/API-Documentation "Named link title") -->
+<!--  - ### [Database Schema](https://github.com/88joonyc/Adventure_time/wiki/Database-Schema "Named link title") -->
+<!--  - ### [User stories](https://github.com/88joonyc/Adventure_time/wiki/User-Stories "Named link title") -->
+<!-- # Frontend Overview 
+
+# Backend Overview -->
+
+# Future Plans
+ - [ ] Allow users to sell stock
+
+<!-- # Conclusion -->
+
+
+# Contact
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)][1]
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)][3]
+
+[joonyc88@gmail.com](mailto:joonyc88@gmail.com)
+
+[1]: https://github.com/88joonyc
+[3]: https://www.linkedin.com/in/pchang1216/
+
+
+Visit the live app powered by Render [here](https://ticker-app-production.railway.app.com/ "Named link title")
+
+
+
+
+
+
+
 # Project: Robinhood clone 
 
 ## API endpoints
 
 https://polygon.io/docs/stocks/getting-started
+
 https://www.alphavantage.co/documentation/
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
