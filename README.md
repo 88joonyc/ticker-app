@@ -1,8 +1,8 @@
 # Batman's Hood![batmanlogo](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/effd806b-4417-4cd4-a0f6-322ecfa98d68)
 
-*By: Paul Chang. --  [Batman's Hood](https://ticker-app-production.railway.app.com/ "Named link title")*
+*By: Paul Chang. --  [Batman's Hood](https://ticker-app-production.up,railway.app/ "Named link title")*
 
-[Batman's Hood](https://ticker-app-production.railway.app.com/ "Named link title")* is an [Robinhood](https://robinhood.com/ "Named link title") clone. 
+[Batman's Hood](https://ticker-app-production.up,railway.app/ "Named link title")* is an [Robinhood](https://robinhood.com/ "Named link title") clone. 
 
 ### Table of Contents:
  - [Application Features](#application-features)
@@ -92,7 +92,7 @@ under construction
 [3]: https://www.linkedin.com/in/pchang1216/
 
 
-Visit the live app powered by Render [here](https://ticker-app-production.railway.app.com/ "Named link title")
+Visit the live app powered by Render [here](https://ticker-app-production.up.railway.app/ "Named link title")
 
 
 
