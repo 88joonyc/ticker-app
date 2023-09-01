@@ -56,7 +56,7 @@ under construction
 - Express
 - React
 - Redux
-- PosgreSQL
+- PostgreSQL
 - Railway
 - TailwindCSS
 - Git
