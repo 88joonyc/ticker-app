@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { VictoryChart, VictoryArea, VictoryAxis, VictoryLine, VictoryContainer } from 'victory';
 
 export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
@@ -163,14 +164,14 @@ export default function InfoPanel({ticker, data, meta, image, news, findmeta}) {
                             {news.results?.map((report, idx) => (
                                 <>
                                     {idx < 3 && <>
-                                    <div className="flex justify-between hover:bg-gray-100 hover:cursor-pointer p-4 gap-8">
+                                    <Link to={report?.article_url} className="flex justify-between hover:bg-gray-100 hover:cursor-pointer p-4 gap-8">
                                         <div className="pt-4 pb-4">
                                             <div className=" text-xs md:text-sm mb-2">{report?.author}</div> 
                                             <div className=" text-xs md:text-sm font-bold">{report?.title}</div>
                                             <div className="text-sm md:text-base text-gray-500">{report?.description != undefined&&report?.description?.substring(0, 60) + '...'}</div>
                                         </div>
                                         <img className="object-cover w-10 h-10 md:h-[134px] md:w-[196px] text-center" src={report.image_url} />
-                                    </div>
+                                    </Link>
                                     </>} 
                                 </>
                             ))}
