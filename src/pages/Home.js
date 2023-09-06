@@ -20,13 +20,13 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
                     <div className='grid md:grid-cols-[75%,25%] md:px-6'>
                         <div className='md:mr-8'> {/* // may change */}
                         <h1 className={`mt-0 md:mt-8 text-2xl md:text-4xl ml-5 md:ml-0`}>
-                        <div className='md:hidden'>
-                            Investing
-                        </div>
-                            ${(total)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            <div className='md:hidden mb-1'>
+                                Investing
+                            </div>
+                            ${(stocksData[0]?.userId == session?.id ? total : 0)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
-                        <div className={` md:text-xl ml-5 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
-                            {current > 0 && '+'}${(current)?.toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        <div ref={investingPriceRef} className={` md:text-xl ml-5 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
+                            {current > 0 && '+'}${(stocksData[0]?.userId == session?.id ? current : 0).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         <>
                             <div className='hidden md:block'>
