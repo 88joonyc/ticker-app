@@ -45,6 +45,8 @@ function App() {
     }
   }, [user?.id])
 
+  console.log('thiosisloasdded',isLoaded)
+
   useEffect(() => {
     run()
     .then((data) => original(data, stocksData, setOrigi, setAvg))
