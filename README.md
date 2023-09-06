@@ -8,7 +8,7 @@
  - [Application Features](#application-features)
  - [Installation](#installation)
  - [Technologies Used](#technologies-used)
- - [Wiki Documentation](#wiki-documentation)
+<!--  - [Wiki Documentation](#wiki-documentation) -->
  - [Future Plans](#future-plans)
 <!--  - [Conclusion](#conclusion) -->
  <!--  - Frontend Overview
@@ -66,7 +66,7 @@ under construction
 - https://www.alphavantage.co/documentation/
 
 
-# Wiki Documentation
+<!-- # Wiki Documentation -->
 <!--  - ### [Home](https://github.com/88joonyc/Adventure_time/wiki "Named link title") -->
 <!--  - ### [Feature List](https://github.com/88joonyc/Adventure_time/wiki/MVP-Feature-List "Named link title") -->
 <!--  - ### [API Docs](https://github.com/88joonyc/Adventure_time/wiki/API-Documentation "Named link title") -->
