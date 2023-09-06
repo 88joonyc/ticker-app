@@ -9,43 +9,43 @@ const addTicker = (ticker) => {
     }
 };
 
-// const headerOptions = {
-//     method: 'GET',
-//     headers: {
-//         'Access-Control-Allow-Origin': '*',
-//         'Authorization': `Bearer ${process.env.REACT_APP_POLYGONAPISECRETEKEY}`
-//     }
-// }
+const headerOptions = {
+    method: 'GET',
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': `Bearer ${process.env.REACT_APP_POLYGONAPISECRETEKEY}`
+    }
+}
 
 export const findMyData = (payload, ticker) => async dispatch => {
     let data
     let metadata
     let news
+   
     await Promise.all([
-        csrfFetch('/api/ticker/search', {
+        csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/search`, {
             method:"POST",
             headers: {"Content-Type": 'application/json'},
             body: JSON.stringify(payload)
-        })
-        .then(async res =>  data = await res.json())
+        }).then(async res => setData(await res.json()))
             .catch(err => console.log(err)),
-        csrfFetch(`/api/ticker/details/${ticker}`)
+        csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/details/${ticker}`)
         .then(async res => await res.json())
         .then(async returndata => {
-            metadata = returndata;
-            // const imageData = returndata?.results?.branding?.logo_url;
-            // if (imageData) {
-            //     return fetch(imageData, headerOptions, {
-            //     }).then(async res => setImage(await res.text())).catch(err => console.log(err))
+            setMeta(returndata);
+            const imageData = returndata?.results?.branding?.logo_url;
+            if (imageData) {
+                return fetch(imageData, headerOptions, {
+                }).then(async res => setImage(await res.text())).catch(err => console.log(err))
                 
-            // }
+            }
         })
         .catch(err => console.log(err)),
-        csrfFetch(`/api/ticker/news/${ticker}`)
+        csrfFetch(`${process.env.REACT_APP_RAILWAY_BACK_URL}/api/ticker/news/${ticker}`)
         .then(async res => await res.json())
-        .then(data => news = data)
+        .then(data => setNews(data))
         .catch(err => console.log(err))
-    ]);
+    ]); 
 
     const senddata = {"ticker":data.ticker, data, metadata, news}
 
