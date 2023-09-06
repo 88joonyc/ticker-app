@@ -80,6 +80,7 @@ under construction
 # Future Plans
  - [ ] Allow users to sell stock
  - [ ] fix how the graph displays data and daily amounts between users
+ - [ ] create live scrollable graph
 
 <!-- # Conclusion -->
 
