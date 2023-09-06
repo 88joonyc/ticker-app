@@ -109,7 +109,7 @@ const walletReducer = (state = initialState, action) => {
             newState.wallet = [...state.wallet, action.payload];
             return newState;
         case UPDATE_WALLET:
-            if (action.payload.status === 200) {
+            if (action.payload.id) {
                 state.mark[action.payload.id] = action.payload
                 let temp = []
                 for (const [key, val] of Object.entries(state.mark)) {
