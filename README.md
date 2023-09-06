@@ -93,9 +93,9 @@ under construction
 [3]: https://www.linkedin.com/in/pchang1216/
 
 
-Visit the live app powered by Render [here](https://ticker-app-production.up.railway.app/ "Named link title")
+Visit the live app powered by Railway [here](https://ticker-app-production.up.railway.app/ "Named link title")
 
-
+Visit the backend repo [here](https://github.com/88joonyc/ticker-app-api "Named link title")
 
 
 
