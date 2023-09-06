@@ -8,10 +8,10 @@
  - [Application Features](#application-features)
  - [Installation](#installation)
  - [Technologies Used](#technologies-used)
-<!--  - [Wiki Documentation](#wiki-documentation) -->
  - [Future Plans](#future-plans)
+<!--  - [Wiki Documentation](#wiki-documentation) -->
 <!--  - [Conclusion](#conclusion) -->
- <!--  - Frontend Overview
+<!--  - Frontend Overview
  - Backend Overview -->
 
 
