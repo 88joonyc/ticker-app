@@ -1,8 +1,8 @@
 # Batman's Hood![batmanlogo](https://github.com/88joonyc/polygon-ticker-app/assets/79543569/effd806b-4417-4cd4-a0f6-322ecfa98d68)
 
-*By: Paul Chang. --  [Batman's Hood](https://ticker-app-production.up.railway.app/ "Named link title")*
+*By: Paul Chang. --  [Batman's Hood](https://ticker-app-production.up.railway.app/ "Named link title")* 
 
-[Batman's Hood](https://ticker-app-production.up.railway.app/ "Named link title")* is an [Robinhood](https://robinhood.com/ "Named link title") clone. 
+[Batman's Hood](https://ticker-app-production.up.railway.app/ "Named link title")*, inspired by [Robinhood](https://robinhood.com/ "Named link title") with a Batman cartoon theme, is designed to harness the capabilities of third-party APIs ([polygon.io](https://polygon.io/ "Named link title")*, [Alpha Vantage](https://www.alphavantage.co/documentation/ "Named link title")*, [YahooFinance](https://www.npmjs.com/package/yahoo-finance2 "Named link title")*) for real-time data retrieval. It offers users the ability to access live stock ticker names, prices, and news, along with features like account creation, wallet management, fund allocation, and stock purchasing.
 
 ### Table of Contents:
  - [Application Features](#application-features)
@@ -64,6 +64,7 @@ under construction
 # External API's connected
 - https://polygon.io/docs/stocks/getting-started
 - https://www.alphavantage.co/documentation/
+- https://www.npmjs.com/package/yahoo-finance2
 
 
 <!-- # Wiki Documentation -->
