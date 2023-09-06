@@ -25,7 +25,7 @@ export default function Home ({isLoaded, stocks, total, current, list}) {
                             </div>
                             ${(stocks[0]?.userId == session?.id ? total : 0)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </h1>
-                        <div ref={investingPriceRef} className={` md:text-xl ml-5 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
+                        <div className={` md:text-xl ml-5 md:ml-0 ${current > 0? 'text-green-500' : 'text-red-500'}`}>
                             {current > 0 && '+'}${(stocks[0]?.userId == session?.id ? current : 0).toFixed(2)?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         <>
