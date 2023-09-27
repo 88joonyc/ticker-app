@@ -44,8 +44,8 @@ export default function NavBar() {
 
     const logout = (e) => {
         e.preventDefault();
-        dispatch(sessionActions.logout());
-        window.location.reload(false);
+        dispatch(sessionActions.logout()).then(() => window.location.reload(false));
+        
     };
 
     return (
