@@ -83,7 +83,7 @@ export default function ControlPanel ({ticker, data}) {
                 <div className='flex flex-col border border-gray-200 pt-6  sticky top-[120px] shadow-lg'>
                     <div className='flex'>
                         <button onClick={() => setControl('buy')} className={`text-xl mb-8 font-bold capitalize hover:text-highlightPurple px-6 ${control == 'buy' ? 'text-highlightPurple border-b-4 border-highlightPurple' : 'text-midnightPurple' }`}>Buy{' ' + ticker}</button>
-                        <button onClick={() => setControl('sell')} className={`text-xl mb-8 font-bold capitalize hover:text-highlightPurple px-6 ${control != 'buy' ? 'text-highlightPurple border-b-4 border-highlightPurple' : 'text-midnightPurple' }`}>Sell{ ' ' + ticker} </button>
+                        {/* <button onClick={() => setControl('sell')} className={`text-xl mb-8 font-bold capitalize hover:text-highlightPurple px-6 ${control != 'buy' ? 'text-highlightPurple border-b-4 border-highlightPurple' : 'text-midnightPurple' }`}>Sell{ ' ' + ticker} </button> */}
                     </div>
                     <form onSubmit={submitPurchase} className='flex flex-col px-6'>
                         <label className='text-base flex justify-between'><span className='capitalize'>{control} in</span>
